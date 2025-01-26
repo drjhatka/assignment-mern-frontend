@@ -5,6 +5,7 @@ import { useLoginMutation } from "../redux/api/authApi"
 import { verifyAndDecodeToken } from "../utils/JWTUtils"
 import { useDispatch } from "react-redux"
 import { setUser } from "../redux/auth/authSlice"
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
 
@@ -20,15 +21,28 @@ const Login = () => {
           //store token in local storage
           localStorage.setItem('token',result.data.token)
           const user = verifyAndDecodeToken(result.data.token.split(' ')[1])
-          console.log('decode ',user)
           dispatch(setUser( {user:user, token:result.data.token}))
+          //redirect user to dashboard
         }
         else{
-          console.log(result)
+          toast.error(result.message)
         }
     }
   return (
     <div>
+      <ToastContainer
+        position='top-center'
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+        transition={Bounce}
+      />
       <div className='hero bg-base-200 min-h-screen'>
         <div className='hero-content flex-col '>
           <div className=' flex  border-b-2 border-green-500 shadow-lg px-6 rounded-md bg-blue-300 text-white w-full py-4 justify-center lg:text-left '>
