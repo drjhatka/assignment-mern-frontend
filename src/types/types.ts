@@ -28,3 +28,10 @@ export  interface IRegisterFormInput {
     user:null|object;
     token:null|string;
   }
+
+  export interface JWTTokenUser {
+    email:string;
+    role:'admin'|'customer';
+    iat:number;
+    exp:number;
+  }

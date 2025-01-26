@@ -1,6 +1,6 @@
 import  baseApi  from "./baseApi";
 
-const baseQuery = {}
+//const baseQuery = {}
 
 const authApi = baseApi.injectEndpoints({
     endpoints:(builder)=>({

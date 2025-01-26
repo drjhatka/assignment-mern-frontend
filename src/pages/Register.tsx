@@ -26,7 +26,6 @@ const Register = () => {
       setDisableSubmit(false)
       setTimeout(()=>{
         navigate('/login', {replace:true})
-
       }, 1500)
     }
   }

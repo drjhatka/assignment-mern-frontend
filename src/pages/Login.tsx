@@ -1,12 +1,31 @@
-import { useForm } from "react-hook-form"
-import { ILoginFormInput } from "../types/types"
+import { FieldValue, FieldValues, useForm } from "react-hook-form"
+import { ILoginFormInput, JWTTokenUser, TAuthState } from '../types/types';
 import { Link } from "react-router-dom"
+import { useLoginMutation } from "../redux/api/authApi"
+import { verifyAndDecodeToken } from "../utils/JWTUtils"
+import { useDispatch } from "react-redux"
+import { setUser } from "../redux/auth/authSlice"
 
 const Login = () => {
 
     const { register, handleSubmit } = useForm<ILoginFormInput>()
-    const handleLogin = (data)=>{
-        
+    const [login] = useLoginMutation()
+    const dispatch = useDispatch()
+
+
+    const handleLogin = async(data:FieldValues)=>{
+        const result = await login(data).unwrap()
+        console.log('Res ',result)
+        if(result.success){
+          //store token in local storage
+          localStorage.setItem('token',result.data.token)
+          const user = verifyAndDecodeToken(result.data.token.split(' ')[1])
+          console.log('decode ',user)
+          dispatch(setUser( {user:user, token:result.data.token}))
+        }
+        else{
+          console.log(result)
+        }
     }
   return (
     <div>

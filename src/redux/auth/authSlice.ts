@@ -1,5 +1,5 @@
 import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
-import { TAuthState } from '../../types/types';
+import { JWTTokenUser, TAuthState } from '../../types/types';
 import { createSlice } from './../../../node_modules/@reduxjs/toolkit/src/createSlice';
 
 const initialState:TAuthState = {
@@ -10,7 +10,7 @@ export const authSlice = createSlice({
     name:'auth',
     initialState,
     reducers:{
-        setUser:(state, action: PayloadAction<{user:object, token:string}>)=>{
+        setUser:(state, action: PayloadAction<TAuthState>)=>{
             const {user, token} = action.payload;
             state.user = user;
             state.token = token;
