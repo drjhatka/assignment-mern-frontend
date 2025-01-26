@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { ILoginFormInput } from "../types/types"
+import { Link } from "react-router-dom"
 
 const Login = () => {
 
@@ -49,8 +50,10 @@ const Login = () => {
               </div>
               <div className='form-control mt-6'>
                 <button type="submit" className='btn btn-primary'>Login</button>
+              <div className='mt-2 flex gap-4 text-md font-semibold items-center  justify-center'><span>No Account Yet? Please </span> <Link className='link' to="/register">Register</Link></div>
               </div>
             </form>
+
           </div>
         </div>
       </div>
