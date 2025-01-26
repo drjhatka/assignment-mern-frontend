@@ -8,10 +8,11 @@ export const NavMiddleMenuItems = [
 
 export const NavRightMenuItems =[
     <li>
-    <Link key={"a"+Math.random()*1000} to='/login' className='justify-between'>
-      Login
-    </Link>
+    <Link key={"a"+Math.random()*1000} to='/login' className='justify-between'>Login</Link>
   </li>,
+  <li>
+  <Link key={"a"+Math.random()*1000} to='/register' className='justify-between'>Register</Link>
+</li>,
   <li>
     <Link key={"a"+Math.random()*1000} to='/customers/orders'>My Orders</Link>
   </li>,
