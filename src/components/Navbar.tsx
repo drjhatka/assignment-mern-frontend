@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom"
-import { NavMiddleMenuItems, NavRightMenuItems } from '../utils/NavMenuUtils';
+import { useSelector } from 'react-redux';
+import { NavCustomerMiddleMenuItems, NavCustomerRightMenuItems, NavAdminRightMenuItems, NavAdminMiddleMenuItems } from '../utils/NavMenuUtils';
+import { RootState } from '../redux/store';
+import { JWTTokenUser } from '../types/types';
 
 const Navbar = () => {
+
+    const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
 
   return (
     <div className='navbar bg-slate-50 shadow-lg'>
@@ -13,7 +17,7 @@ const Navbar = () => {
             tabIndex={0}
             className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
           >
-            {NavMiddleMenuItems.map(items =>items)}
+            {user?.role =='customer' ? NavCustomerMiddleMenuItems.map(items =>items):NavAdminMiddleMenuItems.map(item=>item)}
           </ul>
         </div>
         <img width='50px' height='50px' src='bike.jpg' alt='' />
@@ -21,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1 text-red-600 font-semibold'>
-            {NavMiddleMenuItems.map(items =>items)}
+            {user?.role=='customer'? NavCustomerMiddleMenuItems.map(item=>item):NavAdminMiddleMenuItems.map(item=>item)}
         </ul>
       </div>
       <div className='navbar-end'>
@@ -40,7 +44,7 @@ const Navbar = () => {
             tabIndex={0}
             className='menu  menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
           >
-            {NavRightMenuItems.map(items=>items)}
+            {user?.role=='customer'? NavCustomerRightMenuItems.map(item=>item): NavAdminRightMenuItems.map(item=>item) }
           </ul>
         </div>
       </div>

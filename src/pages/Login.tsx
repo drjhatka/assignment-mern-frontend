@@ -1,6 +1,6 @@
 import { FieldValue, FieldValues, useForm } from "react-hook-form"
 import { ILoginFormInput, JWTTokenUser, TAuthState } from '../types/types';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useLoginMutation } from "../redux/api/authApi"
 import { verifyAndDecodeToken } from "../utils/JWTUtils"
 import { useDispatch } from "react-redux"
@@ -9,6 +9,7 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
 
+    const navigate = useNavigate()
     const { register, handleSubmit } = useForm<ILoginFormInput>()
     const [login] = useLoginMutation()
     const dispatch = useDispatch()
@@ -23,6 +24,7 @@ const Login = () => {
           const user = verifyAndDecodeToken(result.data.token.split(' ')[1])
           dispatch(setUser( {user:user, token:result.data.token}))
           //redirect user to dashboard
+          navigate('/')
         }
         else{
           toast.error(result.message)
