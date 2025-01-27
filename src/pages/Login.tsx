@@ -6,6 +6,7 @@ import { verifyAndDecodeToken } from "../utils/JWTUtils"
 import { useDispatch } from "react-redux"
 import { setUser } from "../redux/auth/authSlice"
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import { useEffect, useState } from "react";
 
 const Login = () => {
 
@@ -18,14 +19,12 @@ const Login = () => {
     })
     const [login] = useLoginMutation()
     const dispatch = useDispatch()
-
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleLogin = async(data:FieldValues)=>{
         const result = await login(data).unwrap()
         console.log('Res ',result)
         if(result.success){
-          //store token in local storage
-          localStorage.setItem('token',result.data.token)
           const user = verifyAndDecodeToken(result.data.token.split(' ')[1])
           dispatch(setUser( {user:user, token:result.data.token}))
           //redirect user to dashboard
