@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavCustomerMiddleMenuItems, NavCustomerRightMenuItems, NavAdminRightMenuItems, NavAdminMiddleMenuItems } from '../utils/NavMenuUtils';
 import { RootState } from '../redux/store';
 import { JWTTokenUser } from '../types/types';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../redux/auth/authSlice';
 
 const Navbar = () => {
@@ -11,7 +10,7 @@ const Navbar = () => {
 const navigate = useNavigate()
    const handleLogout = ()=>{
     dispatch(logout())
-    return navigate('/login')
+    return navigate('/login',{replace:true})
 }
   const NavCustomerMiddleMenuItems = [
     <li><Link to='/' key={"a"+Math.random()*1000}>All Bikes</Link></li>,

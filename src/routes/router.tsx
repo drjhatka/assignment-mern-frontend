@@ -1,11 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdminDashboard from "../pages/admin/AdminDashboard";
-import CustomerDashboard from "../pages/customers/CustomerDashboard";
-import App from "../App";
 import MainLayout from "../layout/MainLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./privateRoute";
+import Dashboard from "../pages/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -14,29 +13,19 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<PrivateRoute><CustomerDashboard></CustomerDashboard></PrivateRoute>
+                element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             }
         ]
-    },
-    {
-        path:'/admin',
-        element:<MainLayout/>,
-        children:[
-            {
-                index:true,
-                element:<AdminDashboard></AdminDashboard>
-            }
-        ]
-    },
-    {
-        path:'/login',
-        element:<Login/>,
-        
     },
     
     {
         path:'/register',
         element:<Register/>,
+        
+    },
+    {
+        path:'/login',
+        element:<Login/>,
         
     },
 ])
