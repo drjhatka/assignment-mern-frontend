@@ -10,7 +10,12 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 const Login = () => {
 
     const navigate = useNavigate()
-    const { register, handleSubmit } = useForm<ILoginFormInput>()
+    const { register, handleSubmit } = useForm<ILoginFormInput>({
+      defaultValues:{
+        email:'john@dev.com',
+        password:'abcd1234'
+      }
+    })
     const [login] = useLoginMutation()
     const dispatch = useDispatch()
 

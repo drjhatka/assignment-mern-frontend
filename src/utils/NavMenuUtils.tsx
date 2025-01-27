@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
+import { handleLogout } from './AuthUtils'
+import { useDispatch } from 'react-redux'
+import { logout } from '../redux/auth/authSlice'
 
+//const dispatch = useDispatch()
 export const NavCustomerMiddleMenuItems = [
   <li><Link to='/' key={"a"+Math.random()*1000}>All Bikes</Link></li>,
   <li><Link to='/'key={"a"+Math.random()*1000}>Featured Bikes</Link></li>,
@@ -13,12 +17,6 @@ export const NavAdminMiddleMenuItems = [
 ]
 
  export const NavCustomerRightMenuItems =[
-//     <li>
-//     <Link key={"a"+Math.random()*1000} to='/login' className='justify-between'>Login</Link>
-//   </li>,
-//   <li>
-//   <Link key={"a"+Math.random()*1000} to='/register' className='justify-between'>Register</Link>
-// </li>,
   <li>
     <Link key={"a"+Math.random()*1000} to='/customers/orders'>Change Password</Link>
   </li>,
@@ -26,7 +24,7 @@ export const NavAdminMiddleMenuItems = [
     <Link key={"a"+Math.random()*1000} to='/customers/orders'>Update Profile</Link>
   </li>,
   <li>
-  <Link key={"a"+Math.random()*1000} to='/customers/orders'>Logout</Link>
+  <button key={"a"+Math.random()*1000} onClick={()=>useDispatch()(logout())}>Logout</button>
 </li>
 ]
 
@@ -35,6 +33,6 @@ export const NavAdminRightMenuItems =[
       <Link key={"a"+Math.random()*1000} to='/customers/orders'>My Profile</Link>
     </li>,
     <li>
-    <Link key={"a"+Math.random()*1000} to='/customers/logout'>Logout</Link>
+    <button key={"a"+Math.random()*1000} onClick={()=>handleLogout(useDispatch())}>Logout</button>
   </li>
   ]

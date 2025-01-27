@@ -1,11 +1,50 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavCustomerMiddleMenuItems, NavCustomerRightMenuItems, NavAdminRightMenuItems, NavAdminMiddleMenuItems } from '../utils/NavMenuUtils';
 import { RootState } from '../redux/store';
 import { JWTTokenUser } from '../types/types';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { logout } from '../redux/auth/authSlice';
 
 const Navbar = () => {
-
-    const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
+  const dispatch = useDispatch()
+  const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
+const navigate = useNavigate()
+   const handleLogout = ()=>{
+    dispatch(logout())
+    return navigate('/login')
+}
+  const NavCustomerMiddleMenuItems = [
+    <li><Link to='/' key={"a"+Math.random()*1000}>All Bikes</Link></li>,
+    <li><Link to='/'key={"a"+Math.random()*1000}>Featured Bikes</Link></li>,
+    <li><Link to='/admin' key={"a"+Math.random()*1000}>My Orders</Link></li>
+  ]
+  
+  const NavAdminMiddleMenuItems = [
+    <li><Link to='/' key={"a"+Math.random()*1000}>Manage Bikes</Link></li>,
+    <li><Link to='/'key={"a"+Math.random()*1000}>Manage Customer</Link></li>,
+    <li><Link to='/admin' key={"a"+Math.random()*1000}>Manage Orders</Link></li>
+  ]
+  
+   const NavCustomerRightMenuItems =[
+    <li>
+      <Link key={"a"+Math.random()*1000} to='/customers/orders'>Change Password</Link>
+    </li>,
+    <li>
+      <Link key={"a"+Math.random()*1000} to='/customers/orders'>Update Profile</Link>
+    </li>,
+    <li>
+    <button key={"a"+Math.random()*1000} onClick={handleLogout}>Logout</button>
+  </li>
+  ]
+  
+  const NavAdminRightMenuItems =[
+      <li>
+        <Link key={"a"+Math.random()*1000} to='/customers/orders'>My Profile</Link>
+      </li>,
+      <li>
+      <button key={"a"+Math.random()*1000} onClick={handleLogout}>Logout</button>
+    </li>
+    ]
 
   return (
     <div className='navbar bg-slate-50 shadow-lg'>
@@ -29,12 +68,15 @@ const Navbar = () => {
         </ul>
       </div>
       <div className='navbar-end'>
+          <div>
+          {user && user.email}
+          </div>
         <div className='dropdown dropdown-end'>
           <div
             tabIndex={0}
             role='button'
             className='btn btn-ghost btn-circle avatar'
-          >
+            >
             <div className='w-10 rounded-full '>
             <img src="user.webp" alt="Login" className="bg-red-500 "/>
 
