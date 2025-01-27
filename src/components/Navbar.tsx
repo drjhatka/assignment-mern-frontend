@@ -3,11 +3,23 @@ import { RootState } from '../redux/store';
 import { JWTTokenUser } from '../types/types';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../redux/auth/authSlice';
+import { useGetUserQuery } from '../redux/api/customerApi';
+import { useState, CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Navbar = () => {
+  const override: CSSProperties = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#3521ce");
   const dispatch = useDispatch()
   const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
-const navigate = useNavigate()
+  const  {data, isLoading } = useGetUserQuery(user?.email)
+  console.log('gget user ', data)
+  const navigate = useNavigate()
    const handleLogout = ()=>{
     dispatch(logout())
     return navigate('/login',{replace:true})
@@ -46,6 +58,9 @@ const navigate = useNavigate()
     ]
 
   return (
+    <>
+    
+    {!isLoading ?
     <div className='navbar bg-slate-50 shadow-lg'>
       <div className='navbar-start'>
         <div className='dropdown'>
@@ -68,7 +83,7 @@ const navigate = useNavigate()
       </div>
       <div className='navbar-end'>
           <div>
-          {user && user.email}
+            {data.data.name}
           </div>
         <div className='dropdown dropdown-end'>
           <div
@@ -89,7 +104,16 @@ const navigate = useNavigate()
           </ul>
         </div>
       </div>
-    </div>
+    </div>:<ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={80}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+  }
+  </>
   )
 }
 

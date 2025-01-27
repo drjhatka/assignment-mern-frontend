@@ -8,8 +8,11 @@ export const customerApi = baseApi.injectEndpoints({
                 method:"POST",
                 body:userInfo
             })
+        }),
+        getUser: builder.query({
+            query:(email)=>`/users/${email}`
         })
     })
 })
 
-export const { useCreateUserMutation, }=customerApi
+export const { useCreateUserMutation, useGetUserQuery }=customerApi
