@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import customerReducer from '../redux/customer/customerSlice'
+import orderReducer from '../redux/api/orderApi'
 import authReducer from './auth/authSlice'
+
 import baseApi from "./api/baseApi";
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -16,6 +18,7 @@ const persistAuthReducer = persistReducer(persistConfig,authReducer)
 export const store= configureStore({
     reducer:{
         customer: customerReducer,
+        order: orderReducer,
         auth: persistAuthReducer,
         [baseApi.reducerPath]: baseApi.reducer,
     },

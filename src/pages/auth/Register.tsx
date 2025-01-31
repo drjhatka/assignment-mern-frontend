@@ -1,19 +1,21 @@
-import { useForm } from 'react-hook-form'
-import { IRegisterFormInput } from '../types/types'
-import { useDispatch } from 'react-redux'
-import { useCreateUserMutation } from '../redux/api/customerApi'
-import { Bounce, ToastContainer, toast } from 'react-toastify'
-import { Link, replace, useNavigate } from 'react-router-dom'
+import { FieldValues, useForm } from 'react-hook-form'
+import { IRegisterFormInput } from '../../types/types'
+import { useCreateUserMutation } from '../../redux/api/customerApi'
+import { toast } from 'react-toastify'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import ToastWrapper from '../../utils/ToastWrapper'
+import InputField from '../../utils/form.elements/InputField'
 
 const Register = () => {
   const navigate = useNavigate()
-  const { register, handleSubmit } = useForm<IRegisterFormInput>()
+  const { register, handleSubmit } = useForm()
+  console.log(register)
   
   const [createUser] = useCreateUserMutation()
   const [disableSubmit, setDisableSubmit] = useState(false)
 
-  const handleRegister = async (data: IRegisterFormInput) => {
+  const handleRegister = async (data: FieldValues) => {
     console.log(data)
     const user = await createUser(data).unwrap()
     console.log(user)
@@ -32,19 +34,7 @@ const Register = () => {
 
   return (
     <div>
-      <ToastContainer
-        position='top-center'
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme='light'
-        transition={Bounce}
-      />
+      <ToastWrapper></ToastWrapper>
       <div className='hero bg-base-200 min-h-screen'>
         <div className='hero-content flex-col '>
           <div className=' flex  border-b-2 border-green-500 shadow-lg px-6 rounded-md bg-blue-300 text-white w-full py-4 justify-center lg:text-left '>
@@ -54,7 +44,8 @@ const Register = () => {
           </div>
           <div className='card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl'>
             <form onSubmit={handleSubmit(handleRegister)} className='card-body'>
-              <div className='form-control'>
+              {InputField('name',register,'Your Name',{type:'text',placeholder:'Enter Full Name',classes:'input input-bordered'}, {})}
+              {/* <div className='form-control'>
                 <label className='label'>
                   <span className='label-text'>Name</span>
                 </label>
@@ -65,7 +56,7 @@ const Register = () => {
                   className='input input-bordered'
                   {...register('name', { required: true, maxLength: 20 })}
                 />
-              </div>
+              </div> */}
               <div className='form-control'>
                 <label className='label'>
                   <span className='label-text'>Email</span>

@@ -1,10 +1,10 @@
 import { FieldValue, FieldValues, useForm } from "react-hook-form"
-import { ILoginFormInput, JWTTokenUser, TAuthState } from '../types/types';
+import { ILoginFormInput, JWTTokenUser, TAuthState } from '../../types/types';
 import { Link, useNavigate } from "react-router-dom"
-import { useLoginMutation } from "../redux/api/authApi"
-import { verifyAndDecodeToken } from "../utils/JWTUtils"
+import { useLoginMutation } from "../../redux/api/authApi"
+import { verifyAndDecodeToken } from "../../utils/JWTUtils"
 import { useDispatch } from "react-redux"
-import { setUser } from "../redux/auth/authSlice"
+import { setUser } from "../../redux/auth/authSlice"
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 

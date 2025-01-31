@@ -13,8 +13,8 @@ const Navbar = () => {
     margin: "0 auto",
     borderColor: "red",
   };
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#3521ce");
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("#3521ce");
   const dispatch = useDispatch()
   const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
   const  {data, isLoading } = useGetUserQuery(user?.email)
@@ -25,7 +25,7 @@ const Navbar = () => {
     return navigate('/login',{replace:true})
 }
   const NavCustomerMiddleMenuItems = [
-    <li><Link to='/' key={"a"+Math.random()*1000}>All Bikes</Link></li>,
+    <li><Link to='/bikes' key={"a"+Math.random()*1000}>All Bikes</Link></li>,
     <li><Link to='/'key={"a"+Math.random()*1000}>Featured Bikes</Link></li>,
     <li><Link to='/admin' key={"a"+Math.random()*1000}>My Orders</Link></li>
   ]
@@ -82,8 +82,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className='navbar-end'>
-          <div>
-            {data.data.name}
+          <div className='text-red-500  text-md flex gap-4 font-semibold items-center'>
+            <span className='text-red-700'> Welcome</span> <h4 className='bg-green-200 hover:capitalize shadow-lg px-3 py-2'>{data.data.name}</h4>
           </div>
         <div className='dropdown dropdown-end'>
           <div
