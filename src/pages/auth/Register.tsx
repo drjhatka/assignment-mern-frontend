@@ -1,33 +1,28 @@
 import { FieldValues, useForm } from 'react-hook-form'
-import { IRegisterFormInput } from '../../types/types'
 import { useCreateUserMutation } from '../../redux/api/customerApi'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 import ToastWrapper from '../../utils/ToastWrapper'
 import InputField from '../../utils/form.elements/InputField'
 
 const Register = () => {
   const navigate = useNavigate()
+
   const { register, handleSubmit } = useForm()
-  console.log(register)
-  
+
   const [createUser] = useCreateUserMutation()
-  const [disableSubmit, setDisableSubmit] = useState(false)
 
   const handleRegister = async (data: FieldValues) => {
     console.log(data)
     const user = await createUser(data).unwrap()
-    console.log(user)
+    console.log(' Created DB User==> ', user.data)
     if (user.status == 404) {
-      toast('Not Created')
+      toast('User could not be Created')
       console.log('User => ', user)
     } else {
-      console.log('User => ', user)
       toast.success('Customer Created successfully')
-      setDisableSubmit(false)
-      setTimeout(()=>{
-        navigate('/login', {replace:true})
+      setTimeout(() => {
+        navigate('/login', { replace: true })
       }, 1500)
     }
   }
@@ -42,53 +37,101 @@ const Register = () => {
               Register With Robin Hood Bikes!
             </h3>
           </div>
-          <div className='card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl'>
+          <div className='card  bg-base-200 border-2 border-green-500 w-full max-w-lg shrink-0 shadow-2xl'>
             <form onSubmit={handleSubmit(handleRegister)} className='card-body'>
-              {InputField('name',register,'Your Name',{type:'text',placeholder:'Enter Full Name',classes:'input input-bordered'}, {})}
-              {/* <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text'>Name</span>
-                </label>
-
-                <input
-                  type='name'
-                  placeholder='Enter Full Name'
-                  className='input input-bordered'
-                  {...register('name', { required: true, maxLength: 20 })}
-                />
-              </div> */}
-              <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text'>Email</span>
-                </label>
-
-                <input
-                  type='email'
-                  placeholder='Enter email address'
-                  className='input input-bordered'
-                  {...register('email', {
+              <div className='grid md:grid-cols-2 gap-4'>
+                {InputField(
+                  'name',
+                  register,
+                  'Your Name',
+                  {
+                    type: 'text',
+                    placeholder: 'Enter Full Name',
+                    classes: 'input input-bordered text-red-700 font-semibold'
+                  },
+                  { required: true, max: 30 }
+                )}
+                {InputField(
+                  'email',
+                  register,
+                  'Your Email',
+                  {
+                    type: 'text',
+                    placeholder: 'Enter Email Address',
+                    classes: 'input input-bordered text-red-700 font-semibold'
+                  },
+                  {
                     required: true,
-                    maxLength: 20,
+                    maxLength: 30,
                     pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-                  })}
-                />
+                  }
+                )}
               </div>
-              <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text'>Password</span>
-                </label>
-                <input
-                  type='password'
-                  placeholder='Set a password'
-                  className='input input-bordered'
-                  {...register('password', { required: true, maxLength: 20 })}
-                />
+              <div className='grid   gap-4'>
+                {InputField(
+                  'phone',
+                  register,
+                  'Your Phone Number',
+                  {
+                    type: 'text',
+                    placeholder: 'Enter Phone Number',
+                    classes: 'input input-bordered text-red-700 font-semibold'
+                  },
+                  { required: true, maxLength: 15 }
+                )}
               </div>
+              <div className='w-full'>
+                {InputField(
+                  'address',
+                  register,
+                  'Your Address',
+                  {
+                    type: 'text',
+                    placeholder: 'Enter Address',
+                    classes: 'input input-bordered text-red-700 font-semibold'
+                  },
+                  { required: true, maxLength: 50 }
+                )}
+              </div>
+              <div className='grid md:grid-cols-2 gap-4'>
+                {InputField(
+                  'city',
+                  register,
+                  'Your City',
+                  {
+                    type: 'text',
+                    placeholder: 'Enter City Name',
+                    classes: 'input input-bordered text-red-700 font-semibold'
+                  },
+                  { required: true, maxLength: 20 }
+                )}
+                {InputField(
+                  'password',
+                  register,
+                  'Create a Password',
+                  {
+                    type: 'password',
+                    placeholder: 'Enter a password',
+                    classes: 'input input-bordered text-red-700 font-semibold'
+                  },
+                  { required: true, maxLength: 10 }
+                )}
+              </div>
+
               <div className='form-control mt-6'>
-                <button type='submit' disabled={disableSubmit} className='btn btn-primary'>
+                <button
+                  type='submit'
+                  // disabled={disableSubmit}
+                  className='btn btn-primary'
+                >
                   Register
                 </button>
-              <div className='mt-2 flex gap-4 text-md font-semibold items-center  justify-center'><span>Already Have an account?</span> <Link className='link' to="/login"> Login</Link></div>
+                <div className='mt-2 flex gap-4 text-md font-semibold items-center  justify-center'>
+                  <span>Already Have an account?</span>
+                  <Link className='link' to='/login'>
+                    Login
+                  </Link>
+                </div>
               </div>
             </form>
           </div>
@@ -97,5 +140,4 @@ const Register = () => {
     </div>
   )
 }
-
 export default Register
