@@ -3,7 +3,7 @@ import { useCreateUserMutation } from '../../redux/api/customerApi'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import ToastWrapper from '../../utils/ToastWrapper'
-import InputField from '../../utils/form.elements/InputField'
+import {createRegularInputField} from '../../utils/form.elements/InputField'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -40,7 +40,7 @@ const Register = () => {
           <div className='card  bg-base-200 border-2 border-green-500 w-full max-w-lg shrink-0 shadow-2xl'>
             <form onSubmit={handleSubmit(handleRegister)} className='card-body'>
               <div className='grid md:grid-cols-2 gap-4'>
-                {InputField(
+                {createRegularInputField(
                   'name',
                   register,
                   'Your Name',
@@ -51,7 +51,7 @@ const Register = () => {
                   },
                   { required: true, max: 30 }
                 )}
-                {InputField(
+                {createRegularInputField(
                   'email',
                   register,
                   'Your Email',
@@ -68,7 +68,7 @@ const Register = () => {
                 )}
               </div>
               <div className='grid   gap-4'>
-                {InputField(
+                {createRegularInputField(
                   'phone',
                   register,
                   'Your Phone Number',
@@ -81,7 +81,7 @@ const Register = () => {
                 )}
               </div>
               <div className='w-full'>
-                {InputField(
+                {createRegularInputField(
                   'address',
                   register,
                   'Your Address',
@@ -94,7 +94,7 @@ const Register = () => {
                 )}
               </div>
               <div className='grid md:grid-cols-2 gap-4'>
-                {InputField(
+                {createRegularInputField(
                   'city',
                   register,
                   'Your City',
@@ -105,7 +105,7 @@ const Register = () => {
                   },
                   { required: true, maxLength: 20 }
                 )}
-                {InputField(
+                {createRegularInputField(
                   'password',
                   register,
                   'Create a Password',

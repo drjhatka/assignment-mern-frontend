@@ -6,8 +6,9 @@ import Register from "../pages/auth/Register";
 import PrivateRoute from "./privateRoute";
 import Dashboard from "../pages/Dashboard";
 import ShowAllBikes from "../pages/bikes/ShowAllBikes";
-import ViewDetails from "../components/ViewDetails";
+import ViewDetails from "../pages/bikes/ViewDetails";
 import OrderBike from "../components/OrderBike";
+import CartHome from "../pages/Cart/CartHome";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path:'order/:productId',
                 element:<OrderBike></OrderBike>
+            },
+            {
+                path:'cart',
+                element:<CartHome></CartHome>
             }
         ]
     },

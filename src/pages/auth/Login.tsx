@@ -1,29 +1,24 @@
-import { FieldValue, FieldValues, useForm } from "react-hook-form"
-import { ILoginFormInput, JWTTokenUser, TAuthState } from '../../types/types';
+import { FieldValues, useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import { useLoginMutation } from "../../redux/api/authApi"
 import { verifyAndDecodeToken } from "../../utils/JWTUtils"
 import { useDispatch } from "react-redux"
 import { setUser } from "../../redux/auth/authSlice"
-import { Bounce, toast, ToastContainer } from "react-toastify";
-import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
+import ToastWrapper from "../../utils/ToastWrapper";
+import {createRegularInputField} from "../../utils/form.elements/InputField";
 
 const Login = () => {
 
     const navigate = useNavigate()
-    const { register, handleSubmit } = useForm<ILoginFormInput>({
-      defaultValues:{
-        email:'john@dev.com',
-        password:'abcd1234'
-      }
-    })
+    const { register, handleSubmit } = useForm()
     const [login] = useLoginMutation()
     const dispatch = useDispatch()
-    const [showPassword, setShowPassword] = useState(false)
 
     const handleLogin = async(data:FieldValues)=>{
+      
         const result = await login(data).unwrap()
-        console.log('Res ',result)
         if(result.success){
           const user = verifyAndDecodeToken(result.data.token.split(' ')[1])
           dispatch(setUser( {user:user, token:result.data.token}))
@@ -36,19 +31,7 @@ const Login = () => {
     }
   return (
     <div>
-      <ToastContainer
-        position='top-center'
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme='light'
-        transition={Bounce}
-      />
+      <ToastWrapper></ToastWrapper>
       <div className='hero bg-base-200 min-h-screen'>
         <div className='hero-content flex-col '>
           <div className=' flex  border-b-2 border-green-500 shadow-lg px-6 rounded-md bg-blue-300 text-white w-full py-4 justify-center lg:text-left '>
@@ -70,7 +53,8 @@ const Login = () => {
 
                 />
               </div>
-              <div className='form-control'>
+              { createRegularInputField('password', register,'Password',{type:'password', placeholder:'Enter Password', classes:'input border-2 rounded'},{required:true, maxLength:20}) }
+              {/* <div className='form-control'>
                 <label className='label'>
                   <span className='label-text'>Password</span>
                 </label>
@@ -79,14 +63,9 @@ const Login = () => {
                   placeholder='password'
                   className='input input-bordered'
                   required
-                  {...register('password',{required:true, maxLength:20})}
+                  {...register('password',{})}
                 />
-                {/* <label className='label'>
-                  <a href='#' className='label-text-alt link link-hover'>
-                    Forgot password?
-                  </a>
-                </label> */}
-              </div>
+              </div> */}
               <div className='form-control mt-6'>
                 <button type="submit" className='btn btn-primary'>Login</button>
               <div className='mt-2 flex gap-4 text-md font-semibold items-center  justify-center'><span>No Account Yet? Please </span> <Link className='link' to="/register">Register</Link></div>

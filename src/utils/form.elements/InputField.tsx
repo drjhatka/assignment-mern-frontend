@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
-const InputField = (
+export const createRegularInputField = (
   name: string,
   register: UseFormRegister<FieldValues>,
   labelText: string,
@@ -12,12 +12,11 @@ const InputField = (
   hooksConfig: RegisterOptions
 ) => {
   const [showPassword, setShowPassword] = useState(false)
-  const togglePasswordView = () => {
-    setShowPassword(!showPassword)
-  }
+  const togglePasswordView = () => setShowPassword(!showPassword)
+
   return (
     <div className='form-control'>
-      <label className='label'>
+      <label className='label' htmlFor={name} >
         <span className='label-text  text-blue-900 font-bold '>
           {labelText}
         </span>
@@ -38,7 +37,7 @@ const InputField = (
             className={inputAttributes.classes}
             {...register(name, hooksConfig)}
           />
-          <button className='btn btn-ghost absolute right-5' onClick={togglePasswordView}>
+          <button className='btn  absolute right-5' onClick={()=>togglePasswordView()}>
             <FontAwesomeIcon icon={!showPassword?faEyeSlash: faEye}></FontAwesomeIcon>
           </button>
         </div>
@@ -46,5 +45,18 @@ const InputField = (
     </div>
   )
 }
-
-export default InputField
+// export const createPasswordInputField(viewState:boolean)=>{
+//   return (
+//     <div className='flex border-2 ' >
+//     // <input
+//     //   type={showPassword ? 'text' : inputAttributes.type}
+//     //   placeholder={inputAttributes.placeholder}
+//     //   className={inputAttributes.classes}
+//     //   {...register(name, hooksConfig)}
+//     // />
+//     // <button className='btn  absolute right-5' onClick={()=>togglePasswordView()}>
+//     //   <FontAwesomeIcon icon={!showPassword?faEyeSlash: faEye}></FontAwesomeIcon>
+//     // </button>
+//   </div>
+//   )
+// }

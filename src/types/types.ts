@@ -82,3 +82,9 @@ export interface IReactHooksFormRegister{
     ref: (instance: HTMLInputElement | null) => void;
   };
 }
+
+export interface CartItem {
+  productId:string, 
+  name:string,
+  quantity:string
+}

@@ -16,20 +16,19 @@ const Navbar = () => {
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState("#3521ce");
   const dispatch = useDispatch()
-  const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
+  const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user) as JWTTokenUser
   const  {data, isLoading } = useGetUserQuery(user?.email)
-  console.log('gget user ', data)
+  //console.log('gget user ', data)
   const navigate = useNavigate()
    const handleLogout = ()=>{
     dispatch(logout())
     return navigate('/login',{replace:true})
 }
   const NavCustomerMiddleMenuItems = [
-    <li><Link to='/bikes' key={"a"+Math.random()*1000}>All Bikes</Link></li>,
-    <li><Link to='/'key={"a"+Math.random()*1000}>Featured Bikes</Link></li>,
+    <li><Link to='/bikes' key={"a"+Math.random()*10000}>All Bikes</Link></li>,
+    <li><Link to='/'key={"a"+Math.random()*10000}>Featured Bikes</Link></li>,
     <li><Link to='/admin' key={"a"+Math.random()*1000}>My Orders</Link></li>
   ]
-  
   const NavAdminMiddleMenuItems = [
     <li><Link to='/' key={"a"+Math.random()*1000}>Manage Bikes</Link></li>,
     <li><Link to='/'key={"a"+Math.random()*1000}>Manage Customer</Link></li>,
@@ -59,7 +58,6 @@ const Navbar = () => {
 
   return (
     <>
-    
     {!isLoading ?
     <div className='navbar bg-slate-50 shadow-lg'>
       <div className='navbar-start'>
@@ -92,7 +90,7 @@ const Navbar = () => {
             className='btn btn-ghost btn-circle avatar'
             >
             <div className='w-10 rounded-full '>
-            <img src="user.webp" alt="Login" className="bg-red-500 "/>
+            <img src="user.webp" alt="User" className="bg-red-500 "/>
 
             </div>
           </div>
@@ -109,6 +107,7 @@ const Navbar = () => {
         loading={loading}
         cssOverride={override}
         size={80}
+        key={"a"+Math.random()*1000}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

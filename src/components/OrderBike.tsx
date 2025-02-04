@@ -23,7 +23,7 @@ const OrderBike = () => {
   const { data } = useGetBikeQuery(productId)
   
   const { data: user } = useGetUserQuery(userState?.email as string)
-  const { _id, name, brand, description, price, quantity, inStock } = data.data
+  const { _id, name, price, quantity } = data.data
 
   const [createOrder] = useCreateOrderMutation()
 console.log(errors)
@@ -44,7 +44,7 @@ console.log(errors)
     }
     console.log(order)
     const result = await createOrder(order)
-    console.log('Resssult ', result)
+    console.log('Result ', result)
     //createOrder
   }
   return (
