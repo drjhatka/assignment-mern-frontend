@@ -20,40 +20,28 @@ const Navbar = () => {
   const  {data, isLoading } = useGetUserQuery(user?.email)
   //console.log('gget user ', data)
   const navigate = useNavigate()
-   const handleLogout = ()=>{
+  const handleLogout = ()=>{
     dispatch(logout())
     return navigate('/login',{replace:true})
 }
   const NavCustomerMiddleMenuItems = [
-    <li><Link to='/bikes' key={"a"+Math.random()*10000}>All Bikes</Link></li>,
-    <li><Link to='/'key={"a"+Math.random()*10000}>Featured Bikes</Link></li>,
-    <li><Link to='/admin' key={"a"+Math.random()*1000}>My Orders</Link></li>
+    <li key={"a"+Math.random()*1000}><Link to='/bikes' >All Bikes</Link></li>,
+    <li key={"a"+Math.random()*1000}><Link to='/'>Featured Bikes</Link></li>,
+    <li key={"a"+Math.random()*1000}><Link to='/admin'>My Orders</Link></li>
   ]
   const NavAdminMiddleMenuItems = [
-    <li><Link to='/' key={"a"+Math.random()*1000}>Manage Bikes</Link></li>,
-    <li><Link to='/'key={"a"+Math.random()*1000}>Manage Customer</Link></li>,
-    <li><Link to='/admin' key={"a"+Math.random()*1000}>Manage Orders</Link></li>
+    <li key={"a"+Math.random()*1000}><Link to='/' >Manage Bikes</Link></li>,
+    <li key={"a"+Math.random()*1000}><Link to='/'>Manage Customer</Link></li>,
+    <li key={"a"+Math.random()*1000}><Link to='/admin'>Manage Orders</Link></li>
   ]
-  
-   const NavCustomerRightMenuItems =[
-    <li>
-      <Link key={"a"+Math.random()*1000} to='/customers/orders'>Change Password</Link>
-    </li>,
-    <li>
-      <Link key={"a"+Math.random()*1000} to='/customers/orders'>Update Profile</Link>
-    </li>,
-    <li>
-    <button key={"a"+Math.random()*1000} onClick={handleLogout}>Logout</button>
-  </li>
+  const NavCustomerRightMenuItems =[
+    <li key={"a"+Math.random()*1000} ><Link to='/customers/orders'>Change Password</Link></li>,
+    <li key={"a"+Math.random()*1000} ><Link to='/customers/orders'>Update Profile</Link></li>,
+    <li key={"a"+Math.random()*1000} ><button  onClick={handleLogout}>Logout</button></li>
   ]
-  
   const NavAdminRightMenuItems =[
-      <li>
-        <Link key={"a"+Math.random()*1000} to='/customers/orders'>My Profile</Link>
-      </li>,
-      <li>
-      <button key={"a"+Math.random()*1000} onClick={handleLogout}>Logout</button>
-    </li>
+      <li key={"a"+Math.random()*1000}><Link  to='/customers/orders'>My Profile</Link></li>,
+      <li key={"a"+Math.random()*1000} ><button onClick={handleLogout}>Logout</button></li>
     ]
 
   return (
@@ -72,7 +60,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img width='50px' height='50px' src='bike.jpg' alt='' />
-        <a className='btn btn-ghost text-xl'>Robin Hood Bikes</a>
+        <Link to={'/'} className='btn btn-ghost text-xl'>Robin Hood Bikes</Link>
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1 text-red-600 font-semibold'>

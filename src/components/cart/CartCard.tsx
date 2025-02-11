@@ -55,7 +55,7 @@ const CartCard = ({ item }: { item: CartItems }) => {
             <div className='border-2 rounded-full px-3 py-2 border-green-400'>
                 <span className='text-green-600 text-sm'>Total Price:  {'\u09F3'}</span>{((item.price ?? 0) * (item.quantity ?? 0)).toFixed(2)}
             </div>
-            <div className='border-2 text-sm flex items-center border-red-700 px-2 rounded-full'>Total Item Ordered  <span className='text-red-800 rounded-full py-1  bg-green-600 text-white px-2 font-semibold'>{item.quantity}</span></div>
+            <div className='border-2 text-sm flex items-center border-red-700 px-2 rounded-full'>Total Item Ordered  <span className=' rounded-full py-1  bg-green-600 text-white px-2 font-semibold'>{item.quantity}</span></div>
             
           </div>
         </div>
@@ -68,5 +68,4 @@ const CartCard = ({ item }: { item: CartItems }) => {
     </div>
   )
 }
-
 export default CartCard

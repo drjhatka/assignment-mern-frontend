@@ -8,14 +8,15 @@ export const bikeApi = baseApi.injectEndpoints({
                 method:"POST",
                 body:userInfo
             })
+            
         }),
         getBikes: builder.query({
-            query:(searchTerm)=>`/bikes?searchTerm=${searchTerm}`
+            query: (queryString) => `/bikes?searchTerm=${queryString.searchTerm}&category=${queryString.category}&brand=${queryString.brand}&price=${queryString.price}`
         }),
         getBike: builder.query({
             query:(productId)=>`/bikes/${productId}`
         }),
-
+        
     })
 })
 
