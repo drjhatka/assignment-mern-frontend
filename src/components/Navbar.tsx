@@ -6,6 +6,8 @@ import { logout } from '../redux/auth/authSlice';
 import { useGetUserQuery } from '../redux/api/customerApi';
 import { useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faHamburger } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const override: CSSProperties = {
@@ -25,9 +27,10 @@ const Navbar = () => {
     return navigate('/login',{replace:true})
 }
   const NavCustomerMiddleMenuItems = [
-    <li key={"a"+Math.random()*1000}><Link to='/bikes' >All Bikes</Link></li>,
-    <li key={"a"+Math.random()*1000}><Link to='/'>Featured Bikes</Link></li>,
-    <li key={"a"+Math.random()*1000}><Link to='/admin'>My Orders</Link></li>
+    <li className='border-2 rounded-md border-green-500' key={"a"+Math.random()*1000}><Link to='/' >Home</Link></li>,
+    <li className='border-2 rounded-md border-green-500' key={"a"+Math.random()*1000}><Link to='/bikes' >All Bikes</Link></li>,
+    <li className='border-2 rounded-md border-green-500' key={"a"+Math.random()*1000}><Link to='/'>Featured Bikes</Link></li>,
+    <li  className='border-2 rounded-md border-green-500' key={"a"+Math.random()*1000}><Link to='/admin'>My Orders</Link></li>
   ]
   const NavAdminMiddleMenuItems = [
     <li key={"a"+Math.random()*1000}><Link to='/' >Manage Bikes</Link></li>,
@@ -51,19 +54,20 @@ const Navbar = () => {
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
+            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
           </div>
           <ul
             tabIndex={0}
-            className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+            className='menu menu-md font-semibold space-y-2   dropdown-content  bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
           >
             {user?.role =='customer' ? NavCustomerMiddleMenuItems.map(items =>items):NavAdminMiddleMenuItems.map(item=>item)}
           </ul>
         </div>
-        <img width='50px' height='50px' src='bike.jpg' alt='' />
-        <Link to={'/'} className='btn btn-ghost text-xl'>Robin Hood Bikes</Link>
+        <img className='hidden md:block' width='50px' height='50px' src='bike.jpg' alt='' />
+        <Link to={'/'} className='btn  btn-ghost text-xl'>Robin Hood Bikes</Link>
       </div>
       <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1 text-red-600 font-semibold'>
+        <ul className='menu menu-horizontal md:gap-5 px-1 text-red-600 font-semibold'>
             {user?.role=='customer'? NavCustomerMiddleMenuItems.map(item=>item):NavAdminMiddleMenuItems.map(item=>item)}
         </ul>
       </div>

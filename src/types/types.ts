@@ -9,7 +9,8 @@ export interface TUser {
 
 export type TSectionTitlePropType = {
   title: string,
-  description: string
+  description: string,
+  image?:string,
 
 }
 

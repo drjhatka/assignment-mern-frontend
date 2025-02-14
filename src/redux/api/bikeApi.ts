@@ -1,3 +1,4 @@
+import { Bike } from "../../types/types"
 import baseApi from "./baseApi"
 
 export const bikeApi = baseApi.injectEndpoints({
@@ -8,7 +9,6 @@ export const bikeApi = baseApi.injectEndpoints({
                 method:"POST",
                 body:userInfo
             })
-            
         }),
         getBikes: builder.query({
             query: (queryString) => `/bikes?searchTerm=${queryString.searchTerm}&category=${queryString.category}&brand=${queryString.brand}&price=${queryString.price}`
@@ -16,8 +16,15 @@ export const bikeApi = baseApi.injectEndpoints({
         getBike: builder.query({
             query:(productId)=>`/bikes/${productId}`
         }),
-        
+
+        updateBike: builder.mutation({
+            query:({updatedBike, bikeId})=>({
+                url:`/bikes/${bikeId}`,
+                method:"PUT",
+                body:updatedBike
+            })
+         })
     })
 })
 
-export const { useCreateBikeMutation, useGetBikesQuery, useGetBikeQuery }=bikeApi
+export const { useCreateBikeMutation, useGetBikesQuery, useGetBikeQuery, useUpdateBikeMutation }=bikeApi

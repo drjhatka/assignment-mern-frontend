@@ -15,6 +15,7 @@ const BikeCard = ({ bike }:{ bike:Bike}) => {
                 src={image}
                 alt={name}
                 className='w-full h-full object-cover'
+                
               />
             </div>
           <div className='card-body py-2 '>
