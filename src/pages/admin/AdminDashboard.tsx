@@ -12,7 +12,7 @@ const AdminDashboard = ()=>{
           <SectionTitle title="Manage Bikes" description=""></SectionTitle>
         </div>
         <div className="fixed flex justify-end  w-full">
-          <Link className="btn rounded-none bg-green-700 -mb-10 lg:w-56 text-white" to={``}><FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon> Add Bike</Link>
+          <Link className="btn rounded-none bg-green-700 -mb-10 lg:w-56 text-white" to={`/bikes/add-bike`}><FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon> Add Bike</Link>
         </div>
         <div className="mt-10">
           <ManageProduct></ManageProduct>

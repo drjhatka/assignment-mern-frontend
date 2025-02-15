@@ -10,6 +10,7 @@ import ViewDetails from "../pages/bikes/ViewDetails";
 import OrderBike from "../components/OrderBike";
 import CartHome from "../pages/Cart/CartHome";
 import UpdateBikeForm from "../pages/admin/UpdateProduct";
+import AddBike from "../pages/admin/AddBike";
 
 export const router = createBrowserRouter([
     {
@@ -39,7 +40,11 @@ export const router = createBrowserRouter([
             {
                 path:'cart',
                 element:<CartHome></CartHome>
-            }
+            },
+            {
+                path:'bikes/add-bike',
+                element:<AddBike></AddBike>
+            },
         ]
     },
     

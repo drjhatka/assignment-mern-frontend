@@ -1,13 +1,12 @@
-import { Bike } from "../../types/types"
 import baseApi from "./baseApi"
 
 export const bikeApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         createBike: builder.mutation({
-            query: (userInfo) => ({
-                url: '/users/create-customer',
+            query: (bikeInfo) => ({
+                url: '/bikes/',
                 method: "POST",
-                body: userInfo
+                body: bikeInfo
             })
         }),
         getBikes: builder.query({

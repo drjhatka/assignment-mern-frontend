@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import ToastWrapper from '../../utils/ToastWrapper';
 import { toast } from 'react-toastify';
 
-const BikeTypes ={
+export const BikeTypes ={
   'Mountain':'Mountain',
   'Road':'Road',
   'Hybrid':'Hybrid',
