@@ -1,15 +1,14 @@
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
 import { useGetBikeQuery, useUpdateBikeMutation } from '../../redux/api/bikeApi'
 import { useParams } from 'react-router-dom'
 import ToastWrapper from '../../utils/ToastWrapper';
 import { toast } from 'react-toastify';
 
-enum BikeTypes {
-  'Mountain',
-  'Road',
-  'Hybrid',
-  'Electric'
+const BikeTypes ={
+  'Mountain':'Mountain',
+  'Road':'Road',
+  'Hybrid':'Hybrid',
+  'Electric':'Electric'
 }
 const UpdateBikeForm = () => {
   const productId = useParams().productId
@@ -23,7 +22,7 @@ const UpdateBikeForm = () => {
   } = useForm()
 
   //const quantity = watch('quantity')
-  const [updateBike, { data }] = useUpdateBikeMutation()
+  const [updateBike] = useUpdateBikeMutation()
 
   const onSubmit = data => {
     console.log('Updated Bike Data:', data)
@@ -112,6 +111,7 @@ const UpdateBikeForm = () => {
                   className='select select-bordered w-full'
                 >
                   {Object.values(BikeTypes).map(type => (
+                  
                     <option key={type} value={type}>
                       {type}
                     </option>

@@ -9,12 +9,11 @@ const ManageProduct = () => {
     brand: '',
     category: ''
   })
-  console.log('Data', data)
   return (
     <div className='mt-4 bg-slate-200 mb-2 flex flex-col gap-6 md:justify-center items-center'>
       {!isLoading &&
         data.data.map((bike: Bike) => {
-          return <AdminProductCard bike={bike}></AdminProductCard>
+          return <AdminProductCard key={bike._id} bike={bike}></AdminProductCard>
         })}
     </div>
   )

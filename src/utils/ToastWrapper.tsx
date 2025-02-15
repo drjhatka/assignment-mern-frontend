@@ -7,7 +7,7 @@ const ToastWrapper = () => {
       autoClose={1500}
       hideProgressBar={false}
       newestOnTop={false}
-      closeOnClick={false}
+      closeOnClick={true}
       rtl={false}
       pauseOnFocusLoss
       draggable
