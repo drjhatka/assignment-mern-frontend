@@ -1,24 +1,27 @@
-import { Order, Product, ProductOrder } from "../../types/types"
+import { Order } from "../../types/types"
 import baseApi from "./baseApi"
 
 export const orderApi = baseApi.injectEndpoints({
     endpoints:(builder)=>({
         createOrder:builder.mutation({
-            query:(orderInfo:ProductOrder)=>({
+            query:(orderInfo:Partial<Order>)=>({
                 url:'/orders',
                 method:"POST",
                 body:orderInfo
             })
         }),
+        getAllUserOrders: builder.query({
+            query:()=>`/orders`
+        }),
         getOrder: builder.query({
-            query:(id)=>`/bikes?searchTerm=${id}`
+            query:(userEmail)=>`/orders/${userEmail}`
         }),
         getOrders: builder.query({
-            query:(productId)=>`/bikes/${productId}`
+            query:(orderId)=>`/orders/${orderId}`
         }),
 
     })
 })
 
-export const { useCreateOrderMutation, useGetOrderQuery, useGetOrdersQuery }=orderApi
+export const { useCreateOrderMutation, useGetOrderQuery, useGetOrdersQuery, useGetAllUserOrdersQuery }=orderApi
 export default orderApi.reducer

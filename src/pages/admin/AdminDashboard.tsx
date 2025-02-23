@@ -1,23 +1,23 @@
-
-import { Link } from "react-router-dom"
+import { faBiking, faCartArrowDown, faUserGroup } from "@fortawesome/free-solid-svg-icons"
+import AdminButtons from "./AdminButtons"
 import ManageProduct from "./ManageProduct"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons"
 import SectionTitle from "../../components/SectionTitle"
+import BreadCrumb from "../../components/ui/BreadCrumb"
 
 const AdminDashboard = ()=>{
    return (
     <div className="">
-        <div>
-          <SectionTitle title="Manage Bikes" description=""></SectionTitle>
+        <SectionTitle title="Admin Menus" description=""></SectionTitle>
+        <BreadCrumb
+          links={[
+            { link: '/', title: 'Home' }
+          ]}
+        ></BreadCrumb>
+        <div className="mt-10  grid lg:grid-cols-3 md:grid-cols-2">
+            <AdminButtons icon={faBiking} link={'/bikes/manage-bikes'} title={'Manage Bikes'}></AdminButtons>
+            <AdminButtons icon={faUserGroup} link={'/users/manage-user'} title={'Manage User'}></AdminButtons>
+            <AdminButtons icon={faCartArrowDown} link={'/orders/view-orders'} title={'View Orders'}></AdminButtons>
         </div>
-        <div className="fixed flex justify-end  w-full">
-          <Link className="btn rounded-none bg-green-700 -mb-10 lg:w-56 text-white" to={`/bikes/add-bike`}><FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon> Add Bike</Link>
-        </div>
-        <div className="mt-10">
-          <ManageProduct></ManageProduct>
-        </div>
-      
     </div>
    )
 }

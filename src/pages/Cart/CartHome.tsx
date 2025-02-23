@@ -1,15 +1,13 @@
 import { useCart } from 'cart';
-import React from 'react';
 import CartCard from '../../components/cart/CartCard';
 import CartRightBar from '../../components/cart/CartRightBar';
 
 const CartHome = () => {
-    const {cartItems, addToCart, decreaseItem} = useCart()
+    const {cartItems} = useCart()
     return (
         <div className=' mb-10 grid lg:gap-2 lg:grid-cols-2'>
             <div className=' rounded-md mt-2 mb-2'>
-                {cartItems?.map(item=><CartCard item={item} ></CartCard>)}
-
+                {cartItems?.map(item=><CartCard key={item.productId} item={item} ></CartCard>)}
             </div>
             <div><CartRightBar></CartRightBar></div>
         </div>

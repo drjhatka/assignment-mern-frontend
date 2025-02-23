@@ -1,18 +1,19 @@
 import { faMinus, faPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { CartItem, Bike } from '../../types/types';
+import { Bike } from '../../types/types';
 import { findCartItem } from './cart.utils';
 import { CartItems } from 'cart';
 
 
 const CartButton = (data:Bike, cartItems:CartItems[], cartFunctions, addItemToCart, deleteItemFromCart) => {
-        const {decreaseItem, addToCart} = cartFunctions
-        console.log("id ", data._id)
+        //const {decreaseItem, addToCart} = cartFunctions
+        //console.log("id ", data._id)
+
         const currentItemInCart:CartItems[] = findCartItem(data._id,cartItems)
+        
         return (currentItemInCart.length !=0?
-                           <div className='flex py-1 w-full border-black rounded-full px-2 items-center font-semibold border-2 bg-green-500 text-white'>
-                            <button  onClick={()=>deleteItemFromCart(currentItemInCart[0])} className='btn bg-red-700 text-white shadow-md rounded-full hover:bg-gray-600'>
+                           <div className='flex py-1 w-full  rounded-full px-2 items-center font-semibold border-2 bg-green-500 text-white'>
+                            <button  onClick={()=>deleteItemFromCart(currentItemInCart[0])} className='btn  shadow-md rounded-full hover:bg-gray-600'>
                             <FontAwesomeIcon icon={faMinus} /> 
                             </button>
                             <div className='text-md px-1'>
@@ -20,7 +21,7 @@ const CartButton = (data:Bike, cartItems:CartItems[], cartFunctions, addItemToCa
 
                             </div>
 
-                            <button onClick={()=>addItemToCart(currentItemInCart[0])} className='btn bg-blue-400 text-white shadow-md rounded-full hover:bg-gray-600'>
+                            <button onClick={()=>addItemToCart(currentItemInCart[0])} className='btn  shadow-md rounded-full hover:bg-gray-600'>
                             <FontAwesomeIcon icon={faPlus} />
                             </button>
                             </div> 

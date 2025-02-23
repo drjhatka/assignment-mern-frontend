@@ -1,20 +1,45 @@
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CartItems, useCart } from 'cart'
-import { generateCartItemQuantitySelectMenu } from './cart.utils'
-import { Link } from 'react-router-dom'
+import { data, Link } from 'react-router-dom'
 import ToastWrapper from '../../utils/ToastWrapper'
+import { Bike, CartItem } from '../../types/types';
+import { useGetBikeQuery } from '../../redux/api/bikeApi'
+import CartButton from './CartButton'
+
 
 const CartCard = ({ item }: { item: CartItems }) => {
+  const { addToCart, cartItems, decreaseItem, removeFromCart } = useCart()
+  const {data:bike, isLoading} =  useGetBikeQuery(item.productId)
+  const addItemToCart = (item: Bike) => {
+    if (!item) {
+      console.error('No product data available to add to cart.')
+      return
+    }
+    addToCart?.({
+      productId: item.productId,
+      price: item.price,
+      imagesrc: item.image,
+      name: item.name,
+      quantity: item.quantity
+    })
+    console.log('Cart Items:', cartItems)
+  }
+ const deleteItemFromCart = (item: Bike) => {
+    decreaseItem?.(item.productId, 1)
+  }
+  
   const handleRemove = () => {
     removeFromCart?.(item.productId as string)
     //setInterval(()=>{toast.success('Item removed from card')},2000)
   }
-  const { addToCart, removeFromCart } = useCart()
   return (
+
     <div className='bg-slate-50 rounded-lg  shadow-2xl border-2   mt-2 py-3 mb-2 '>
-      <ToastWrapper></ToastWrapper>
-      <div className='w-full  py-2 rounded-lg  flex gap-5 px-4 mt-2 '>
+      {
+        !isLoading &&
+        <div className='w-full  py-2 rounded-lg  flex gap-5 px-4 mt-2 '>
+        <ToastWrapper></ToastWrapper>
         <div className='flex items-center'>
           <label className='cursor-pointer'>
             <input type='checkbox' id='id' name='name' className='hidden' />
@@ -55,16 +80,13 @@ const CartCard = ({ item }: { item: CartItems }) => {
             <div className='border-2 rounded-full px-3 py-2 border-green-400'>
                 <span className='text-green-600 text-sm'>Total Price:  {'\u09F3'}</span>{((item.price ?? 0) * (item.quantity ?? 0)).toFixed(2)}
             </div>
-            <div className='border-2 text-sm flex items-center border-red-700 px-2 rounded-full'>Total Item Ordered  <span className=' rounded-full py-1  bg-green-600 text-white px-2 font-semibold'>{item.quantity}</span></div>
-            
+            <div className=' gap-5 text-sm flex items-center  px-2 rounded-full'>
+              {CartButton(bike.data,cartItems!,()=>{},addItemToCart,deleteItemFromCart)}
+              </div>
           </div>
         </div>
-
       </div>
-      {/* <div className='border-2 border-black flex justify-around'>
-        
-        <span>{generateCartItemQuantitySelectMenu(addToCart, item)}</span>
-      </div> */}
+      }
     </div>
   )
 }

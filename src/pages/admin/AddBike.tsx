@@ -5,6 +5,7 @@ import ToastWrapper from '../../utils/ToastWrapper'
 import { BikeTypes } from './UpdateProduct'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 const AddBike = () => {
   const {
@@ -17,7 +18,7 @@ const AddBike = () => {
 
   //const quantity = watch('quantity')
   const [createBike] = useCreateBikeMutation()
-
+  const navigate = useNavigate()
   const onSubmit = (data:FieldValues) => {
     console.log('Added Bike Data:', data)
     const addedBike = {
@@ -30,9 +31,14 @@ const AddBike = () => {
       inStock: data.inStock,
       image: data.image
     }
-    console.log(addedBike)
-    createBike(addedBike)
-    toast.success('Bike Added Successfully')
+    //console.log(addedBike)
+    createBike(addedBike).then(()=>{
+        toast.success('Bike Added Successfully')
+    })
+    //redirect to manage products page
+    setTimeout(()=>{
+        navigate('/')
+    },3000)
   }
 
   return (

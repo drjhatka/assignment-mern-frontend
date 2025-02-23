@@ -7,7 +7,7 @@ export const findCartItem =(productId:string, cartItems:CartItems[])=>{
 
 export const getCartItemTotal=(cartItems:CartItems[])=>{
     if(cartItems.length==0){return 0}
-    return cartItems.reduce((acc:number, item:CartItems)=>acc +  (item.price ?? 0) * (item.quantity?? 0), 0 )
+    return cartItems.reduce((acc:number, item:CartItems)=>acc +  (item.price ?? 0) * (item.quantity?? 0), 0 ).toFixed(2)
 }
 const handleChangeCartItem=(item:CartItems, addToCart, quantity:number)=>{
     const updatedItem = { ...item, quantity }; 

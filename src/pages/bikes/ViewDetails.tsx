@@ -4,9 +4,8 @@ import Spinner from '../../components/Spinner'
 import SectionTitle from '../../components/SectionTitle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faMinus,
+
   faMoneyBill1Wave,
-  faPlus,
   faShoppingCart
 } from '@fortawesome/free-solid-svg-icons'
 import { useCart } from 'cart'
@@ -20,17 +19,15 @@ const ViewDetails = () => {
   const {
     addToCart,
     decreaseItem,
-    clearCart,
-    removeFromCart,
-    toggleCart,
     cartItems
   } = useCart()
+
   const { data, isLoading } = useGetBikeQuery(params.productId)
 
-  useEffect(() => {
-    //clearCart?.()
-    console.log('Cart Items ==> ', cartItems)
-  }, [])
+  // useEffect(() => {
+  //   //clearCart?.()
+  //   console.log('Cart Items ==> ', cartItems)
+  // }, [])
   // Wait for data before destructuring
   if (isLoading) return <Spinner />
   if (!data?.data) return <p className='text-red-600'>No bike details found.</p>
@@ -51,7 +48,7 @@ const ViewDetails = () => {
     })
     console.log('Cart Items:', cartItems)
   }
-  const deleteItemFromCart = (item: Bike) => {
+ const deleteItemFromCart = (item: Bike) => {
     decreaseItem?.(item.productId, 1)
   }
 

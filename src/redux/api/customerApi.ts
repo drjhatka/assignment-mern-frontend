@@ -9,10 +9,14 @@ export const customerApi = baseApi.injectEndpoints({
                 body:userInfo
             })
         }),
-        getUser: builder.query({
-            query:(email)=>`/users/${email}`
-        })
+        getUsers: builder.query({
+            query: () => `/users/`
+        }),
+        getSingleUser: builder.query({
+            query: (email) => `/users/${email}`
+        }),
+        
     })
 })
 
-export const { useCreateUserMutation, useGetUserQuery }=customerApi
+export const { useCreateUserMutation, useGetUsersQuery, useGetSingleUserQuery }=customerApi

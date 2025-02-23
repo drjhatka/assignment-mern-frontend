@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetBikeQuery } from '../redux/api/bikeApi'
 import { FieldValues, useForm } from 'react-hook-form'
-import { useGetUserQuery } from '../redux/api/customerApi'
+import { useGetSingleUserQuery } from '../redux/api/customerApi'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { JWTTokenUser, ProductOrder } from '../types/types'
@@ -22,7 +22,7 @@ const OrderBike = () => {
 
   const { data } = useGetBikeQuery(productId)
   
-  const { data: user } = useGetUserQuery(userState?.email as string)
+  const { data: user } = useGetSingleUserQuery(userState?.email as string)
   const { _id, name, price, quantity } = data.data
 
   const [createOrder] = useCreateOrderMutation()
