@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import customerReducer from '../redux/customer/customerSlice'
 import orderReducer from '../redux/api/orderApi'
 import authReducer from './auth/authSlice'
+import reviewReducer from './api/reviewApi'
 
 import baseApi from "./api/baseApi";
 import { persistStore, persistReducer } from 'redux-persist';
@@ -19,7 +20,9 @@ export const store= configureStore({
     reducer:{
         customer: customerReducer,
         order: orderReducer,
+        //review: reviewReducer,
         auth: persistAuthReducer,
+        //review: reviewRe
         [baseApi.reducerPath]: baseApi.reducer,
     },
     middleware: (getDefaultMiddleware)=> getDefaultMiddleware({ serializableCheck: false }).concat(baseApi.middleware),

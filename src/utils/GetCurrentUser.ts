@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { JWTTokenUser } from "../types/types"
 import { RootState } from "../redux/store"
-import { useGetSingleUserQuery } from "../redux/api/customerApi"
+import { useGetSingleUserByIdQuery, useGetSingleUserQuery } from "../redux/api/customerApi"
 
 
 export const GetCurrentUser=()=>{
@@ -12,4 +12,9 @@ export const GetCurrentUser=()=>{
     const {data:user, isLoading}= useGetSingleUserQuery(userState.email)
     console.log('CUrrent ', user)
     return {user, isLoading}
+}
+
+export const getUserName = (userId:string)=>{
+    const {data:user, isLoading}= useGetSingleUserByIdQuery(userId)
+    return user
 }
