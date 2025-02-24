@@ -16,7 +16,7 @@ const UpdateBikeForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    
     setValue,
     formState: { errors }
   } = useForm()
@@ -24,7 +24,8 @@ const UpdateBikeForm = () => {
   //const quantity = watch('quantity')
   const [updateBike] = useUpdateBikeMutation()
 
-  const onSubmit = data => {
+  //@ts-ignore
+  const onSubmit = (data) => {
     console.log('Updated Bike Data:', data)
     const updatedBike = {
       name: data.name,

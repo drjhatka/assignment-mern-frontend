@@ -11,7 +11,7 @@ const AddBike = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    
     setValue,
     formState: { errors }
   } = useForm()

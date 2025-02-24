@@ -1,21 +1,7 @@
-import { useCart } from 'cart'
 
-const item = {
-  productId: '123',
-  name: 'Product 1',
-  quantity: 1,
-  price: 10
-}
 
 const Cart = () => {
-//   const {
-//     addToCart,
-//     cartItems,
-//     clearCart,
-//     decreaseItem,
-//     toggleCart,
-//     isCartOpen
-//   } = useCart()
+
 
   return (
     <div>

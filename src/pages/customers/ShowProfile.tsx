@@ -1,7 +1,4 @@
-import React from 'react';
-import { TUser } from '../../types/types';
-import { useParams } from 'react-router-dom';
-import { useGetSingleUserQuery } from '../../redux/api/customerApi';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { GetCurrentUser } from '../../utils/GetCurrentUser';

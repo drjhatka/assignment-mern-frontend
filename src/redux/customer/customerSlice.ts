@@ -1,8 +1,7 @@
-import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
-import { TAuthState, TUser } from '../../types/types';
+import {  TUser } from '../../types/types';
 import { createSlice } from './../../../node_modules/@reduxjs/toolkit/src/createSlice';
 
-const initialState: TUser = {
+const initialState: Partial<TUser> = {
     name:'',
     email:'',
     password:'',
@@ -15,9 +14,9 @@ export const customerSlice = createSlice({
     name:'customer',
     initialState,
     reducers:{
-        createUser:(state, action: PayloadAction<TUser>)=>{
+        // createUser:(state, action: PayloadAction<TUser>)=>{
             
-        }
+        // }
     }
 })
 

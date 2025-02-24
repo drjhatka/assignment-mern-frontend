@@ -1,10 +1,10 @@
 import { useCart } from 'cart';
 import { getCartItemTotal } from './cart.utils';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const CartRightBar = () => {
     const {cartItems} = useCart()
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
     const cartTotal = getCartItemTotal(cartItems ??[] )
     return (
         <div className=''>

@@ -1,8 +1,7 @@
-import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { Link } from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
+// @ts-ignore
 const AdminButtons = ({link, icon, title}) => {
   return (
     <div className='px-5 mb-5'>

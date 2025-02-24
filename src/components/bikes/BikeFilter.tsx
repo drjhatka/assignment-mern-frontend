@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Select, { SingleValue } from 'react-select'
 
+// @ts-ignore
 const BikeFilter = ({ filterHandler }) => {
   const options = [
     { value: 'all', label: 'All' },
@@ -10,12 +11,12 @@ const BikeFilter = ({ filterHandler }) => {
     { value: 'Road', label: 'Road' }
   ]
 
-  const priceRanges = [
-    {value:'all',label:'all'},
-    { value: '1k', label: '0-999' },
-    { value: '2k', label: '1000-1999' },
-    { value: '3k', label: '2000-2999' } // Fixed duplicate '1k'
-  ]
+  // const priceRanges = [
+  //   {value:'all',label:'all'},
+  //   { value: '1k', label: '0-999' },
+  //   { value: '2k', label: '1000-1999' },
+  //   { value: '3k', label: '2000-2999' } // Fixed duplicate '1k'
+  // ]
   const brands = [
     { value: 'all', label: 'All' },
     { value: 'Scott', label: 'Scott' },
@@ -28,10 +29,10 @@ const BikeFilter = ({ filterHandler }) => {
     value: string
     label: string
   } | null>(options[0])
-  const [selectedPrice, setSelectedPrice] = useState<{
-    value: string
-    label: string
-  } | null>(priceRanges[0])
+  // const [selectedPrice, setSelectedPrice] = useState<{
+  //   value: string
+  //   label: string
+  // } | null>(priceRanges[0])
   const [selectedBrand, setSelectedBrand] = useState<{
     value: string
     label: string

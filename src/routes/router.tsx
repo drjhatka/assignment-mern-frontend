@@ -1,10 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AdminDashboard from '../pages/admin/AdminDashboard'
 import MainLayout from '../layout/MainLayout'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import PrivateRoute from './privateRoute'
-import Dashboard from '../pages/Dashboard'
 import ShowAllBikes from '../pages/bikes/ShowAllBikes'
 import ViewDetails from '../pages/bikes/ViewDetails'
 import OrderBike from '../components/OrderBike'
@@ -14,14 +12,12 @@ import AddBike from '../pages/admin/AddBike'
 import ManageProduct from '../pages/admin/ManageProduct'
 import ManageUsers from '../pages/admin/ManageUsers'
 import ViewOrders from '../pages/admin/ViewOrders'
-import StripeContainer from '../components/stripe/CheckoutPage'
-import PaymentForm from '../components/stripe/CheckoutForm'
 import CheckoutPage from '../components/stripe/CheckoutPage'
-import CheckoutForm from '../components/stripe/CheckoutForm'
 import PaymentRedirect from '../components/stripe/PaymentRedirect'
 import MyOrders from '../pages/orders/MyOrders'
 import ShowProfile from '../pages/customers/ShowProfile'
 import UpdateProfile from '../pages/customers/UpdateProfile'
+import CustomerDashboard from '../pages/customers/CustomerDashboard'
 
 export const router = createBrowserRouter([
   {
@@ -30,11 +26,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: (
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-        )
+        element:<CustomerDashboard></CustomerDashboard>
       },
       {
         path: 'bikes',
@@ -74,7 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'payment/checkout/:amount',
-        element: <CheckoutPage />
+        element: <PrivateRoute><CheckoutPage /></PrivateRoute>
       },
       {
         path: 'payment-success/:amount',

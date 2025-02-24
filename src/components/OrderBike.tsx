@@ -1,19 +1,18 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetBikeQuery } from '../redux/api/bikeApi'
 import { FieldValues, useForm } from 'react-hook-form'
 import { useGetSingleUserQuery } from '../redux/api/customerApi'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
-import { JWTTokenUser, ProductOrder } from '../types/types'
+import { JWTTokenUser, Order } from '../types/types'
 import { useCreateOrderMutation } from '../redux/api/orderApi'
 import SectionTitle from './SectionTitle'
-import { ErrorMessage } from '@hookform/error-message'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyBill1Wave, faUser } from '@fortawesome/free-solid-svg-icons'
-import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 const OrderBike = () => {
+
   const productId = useParams().productId
   const { register, handleSubmit, formState:{errors} } = useForm()
   const userState: JWTTokenUser | null = useSelector(
@@ -27,11 +26,12 @@ const OrderBike = () => {
 
   const [createOrder] = useCreateOrderMutation()
 console.log(errors)
+
   const handleCreateOrder = async (data: FieldValues) => {
-    console.log('inside orders', user)
-    const order: ProductOrder = {
-      userId: user.data._id,
-      product: [
+    //console.log('inside orders', user)
+    const order: Partial<Order> = {
+      user: user.data._id,
+      products: [
         {
           product: _id,
           quantity: data.quantity

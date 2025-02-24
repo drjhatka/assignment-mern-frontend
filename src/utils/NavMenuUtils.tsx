@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { handleLogout } from './AuthUtils'
 import { useDispatch } from 'react-redux'
 import { logout } from '../redux/auth/authSlice'
 
@@ -28,11 +27,11 @@ export const NavAdminMiddleMenuItems = [
 </li>
 ]
 
-export const NavAdminRightMenuItems =[
-    <li>
-      <Link key={"a"+Math.random()*1000} to='/customers/orders'>My Profile</Link>
-    </li>,
-    <li>
-    <button key={"a"+Math.random()*1000} onClick={()=>handleLogout(useDispatch())}>Logout</button>
-  </li>
-  ]
+// export const NavAdminRightMenuItems =[
+//     <li>
+//       <Link key={"a"+Math.random()*1000} to='/customers/orders'>My Profile</Link>
+//     </li>,
+//     <li>
+//     <button key={"a"+Math.random()*1000} onClick={()=>handleLogout(useDispatch())}>Logout</button>
+//   </li>
+//   ]

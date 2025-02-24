@@ -1,16 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { JWTTokenUser } from '../types/types'
-import { Link, Links, useNavigate } from 'react-router-dom'
+import { Link,  useNavigate } from 'react-router-dom'
 import { logout } from '../redux/auth/authSlice'
 import { useGetSingleUserQuery } from '../redux/api/customerApi'
-import { useState, CSSProperties } from 'react'
-import ClipLoader from 'react-spinners/ClipLoader'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBars,
   faCartArrowDown,
-  faHamburger
 } from '@fortawesome/free-solid-svg-icons'
 import Spinner from './ui/Spinner'
 import { useCart } from 'cart'
@@ -21,7 +19,9 @@ const Navbar = () => {
   const user: JWTTokenUser | null = useSelector(
     (state: RootState) => state.auth.user
   ) as JWTTokenUser
+
   const { data, isLoading } = useGetSingleUserQuery(user?.email)
+  console.log('da ', data)
   const navigate = useNavigate()
   const handleLogout = () => {
     dispatch(logout())
@@ -65,9 +65,6 @@ const Navbar = () => {
     </li>,
     <li key={'a' + Math.random() * 1000}>
       <Link to='/orders/view-orders'>Manage Orders</Link>
-    </li>,
-    <li key={'a' + Math.random() * 1000}>
-      <Link to='/payment/checkout/10'>Payment</Link>
     </li>
   ]
   const NavCustomerRightMenuItems = [
@@ -86,7 +83,7 @@ const Navbar = () => {
   ]
   const NavAdminRightMenuItems = [
     <li key={'a' + Math.random() * 1000}>
-      <Link to={`/show-profile/${user.email}`}>My Profile</Link>
+      <Link to={`/show-profile/${user?.email}`}>My Profile</Link>
     </li>,
     <li key={'a' + Math.random() * 1000}>
       <button onClick={handleLogout}>Logout</button>
@@ -128,14 +125,15 @@ const Navbar = () => {
           </div>
           <div className='navbar-center hidden lg:flex'>
             <ul className='menu menu-horizontal md:gap-5 px-1 text-red-600 font-semibold'>
-              {user?.role == 'customer'
-                ? NavCustomerMiddleMenuItems.map(item => item)
-                : NavAdminMiddleMenuItems.map(item => item)}
+              {user?.role == 'admin'
+                ? NavAdminMiddleMenuItems.map(item => item)
+                : NavCustomerMiddleMenuItems.map(item => item)
+                }
             </ul>
           </div>
           <div className='navbar-end gap-5'>
             <div>
-              {cartItems!.length > 0 && user.role !='admin' && (
+              {user && cartItems!.length > 0 && user?.role !='admin' && (
                 <Link to='/cart'>
                   <div className='relative'>
                     <div className='absolute -top-4 left-3 px-3 rounded-full bg-orange-500 text-white  font-bold'>
@@ -153,7 +151,7 @@ const Navbar = () => {
             </div>
             <div className='text-red-500  text-md flex gap-4 font-semibold items-center'>
               <h4 className='bg-green-200 hover:capitalize shadow-lg px-3 py-2'>
-                {data.data.name}
+                {data.data?.name}
               </h4>
             </div>
             <div className='dropdown dropdown-end'>
@@ -170,9 +168,20 @@ const Navbar = () => {
                 tabIndex={0}
                 className='menu  menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
               >
-                {user?.role == 'customer'
-                  ? NavCustomerRightMenuItems.map(item => item)
-                  : NavAdminRightMenuItems.map(item => item)}
+                {
+                    !user ? <div>
+                      <li key={'a' + Math.random() * 1000}>
+                    <Link to={`/login`}>Login</Link>
+                  </li>
+                  <li key={'a' + Math.random() * 1000}>
+                    <Link to={`/register`}>Register</Link>
+                  </li>
+                  
+                  </div>: (user?.role == 'admin'
+                  ? NavAdminRightMenuItems.map(item => item)
+                  :  NavCustomerRightMenuItems.map(item => item))}
+                  
+                
               </ul>
             </div>
           </div>

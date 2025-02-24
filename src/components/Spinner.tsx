@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import  { CSSProperties, useState } from 'react';
 import { ClipLoader } from 'react-spinners';
 
 const Spinner = () => {
@@ -7,8 +7,10 @@ const Spinner = () => {
         margin: "0 auto",
         borderColor: "red",
       };
-      const [loading, setLoading] = useState(true);
-      const [color, setColor] = useState("#3521ce");
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [loading] = useState(true);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [color] = useState("#3521ce");
     return (
         <div>
             <ClipLoader

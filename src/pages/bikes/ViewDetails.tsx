@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetBikeQuery } from '../../redux/api/bikeApi'
 import Spinner from '../../components/Spinner'
@@ -8,7 +9,7 @@ import {
   faShoppingCart
 } from '@fortawesome/free-solid-svg-icons'
 import { useCart } from 'cart'
-import { Bike } from '../../types/types'
+import {  CartItem } from '../../types/types'
 import CartButton from '../../components/cart/CartButton'
 import ReviewForm from './ReviewForm'
 import BikeReviewPanel from './BikeReviewPanel'
@@ -32,13 +33,13 @@ const ViewDetails = () => {
   if (!data?.data) return <p className='text-red-600'>No bike details found.</p>
   const { _id, image, name, description, price, quantity } = data.data
 
-  const addItemToCart = (item: Bike) => {
+  const addItemToCart = (item: { productId: any; name: any; quantity: any }) => {
     if (!item) {
       console.error('No product data available to add to cart.')
       return
     }
     addToCart?.({
-      productId: item.productId,
+      productId: item?.productId,
       price: price,
       imagesrc: image,
       name: item.name,
@@ -46,7 +47,7 @@ const ViewDetails = () => {
     })
     console.log('Cart Items:', cartItems)
   }
-  const deleteItemFromCart = (item: Bike) => {
+  const deleteItemFromCart = (item: CartItem) => {
     decreaseItem?.(item.productId, 1)
   }
 

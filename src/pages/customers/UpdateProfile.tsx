@@ -7,8 +7,7 @@ const UpdateProfile = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    setValue,
+    
     formState: { errors }
   } = useForm()
 

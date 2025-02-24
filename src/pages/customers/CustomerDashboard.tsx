@@ -4,12 +4,11 @@ import SectionTitle from '../../components/SectionTitle';
 import { useGetBikesQuery } from '../../redux/api/bikeApi'
 import { Bike } from '../../types/types'
 import BannerCarousel from '../../components/ui/BannerCarousel'
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const CustomerDashboard = () => {
   const {data, isLoading} = useGetBikesQuery({ searchTerm:'',brand: "", category: "" })
-  const [viewAllBikes, setViewAllBikes ]= useState(false)
+  //const [viewAllBikes, setViewAllBikes ]= useState(false)
 
   return (
     <div>

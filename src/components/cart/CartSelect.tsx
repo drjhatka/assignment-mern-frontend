@@ -1,7 +1,7 @@
 import { CartItems } from 'cart';
-import React from 'react'
-import Select from 'react-select'
-import { generateCartItemQuantitySelectMenu } from './cart.utils';
+// import { generateCartItemQuantitySelectMenu } from './cart.utils';
+
+// @ts-ignore 
 const CartSelect = ({item}:{item:CartItems}) => {
     // const options = [
     //     { value: '', label: 'Chocolate' },
@@ -10,7 +10,7 @@ const CartSelect = ({item}:{item:CartItems}) => {
     //   ]
     return (
         <div>
-            {generateCartItemQuantitySelectMenu(item.quantity)}
+            {/* {generateCartItemQuantitySelectMenu(item.quantity)} */}
         </div>
     );
 };

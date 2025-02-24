@@ -44,9 +44,11 @@ const BannerCarousel = ({ bikes }: { bikes: Bike[] }) => {
         dotListClass='custom-dot-list-style'
         itemClass='carousel-item-padding-40-px'
       >
-        {bikes.slice(0,4).map((bike: Bike) => (
+        {bikes.slice(0,4).map((bike: Bike  ) => (
+          <>
+          {/* @ts-ignore */}
           <div
-            key={bike._id}
+            key={bike?._id}
             className='card card-compact ml-4 border-2 py-2 px-2  bg-base-100 shadow-2xl'
           >
             <div className='absolute right-0 w-10'>
@@ -69,7 +71,9 @@ const BannerCarousel = ({ bikes }: { bikes: Bike[] }) => {
               </div>
             </div>
           </div>
-        ))}
+        </>
+        ))
+        }
       </Carousel>
       )
     </div>

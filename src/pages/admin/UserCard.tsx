@@ -1,12 +1,10 @@
-import React from 'react';
+
 import ToastWrapper from '../../utils/ToastWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons/faUserAstronaut';
 import { TUser } from '../../types/types';
-import { faCross, faLock, faMessage, faPhone, faTable, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {  faLock, faMessage, faPhone, faTable, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { faTelegram } from '@fortawesome/free-brands-svg-icons';
-import { faVoicemail } from '@fortawesome/free-solid-svg-icons/faVoicemail';
 
 const UserCard = ({user}:{user:TUser}) => {
     const {name, email, status, role, phone} = user;

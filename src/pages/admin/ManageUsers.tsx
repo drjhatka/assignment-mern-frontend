@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom'
+
 import SectionTitle from '../../components/SectionTitle'
 import BreadCrumb from '../../components/ui/BreadCrumb'
 import { useGetUsersQuery } from '../../redux/api/customerApi'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+
 import { TUser } from '../../types/types'
 import UserCard from './UserCard'
 
@@ -25,8 +24,9 @@ const ManageUsers = () => {
 
       <div className='mt-4  bg-slate-200 mb-4 flex flex-col gap-6 md:justify-center items-center'>
          {!isLoading &&
-          data.data.map((user: TUser) => {
+          data.data.map((user: TUser & { _id: string }) => {
             return (
+
               <UserCard key={user._id} user={user}></UserCard>
             )
           })}

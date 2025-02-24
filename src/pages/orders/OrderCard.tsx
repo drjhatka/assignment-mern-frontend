@@ -5,13 +5,13 @@ import { RootState } from '../../redux/store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-const OrderCard = ({ order }: { order: Order }) => {
+const OrderCard = ({ order }: { order: Partial<Order> }) => {
   const userState: JWTTokenUser | null = useSelector(
     (state: RootState) => state.auth.user
   ) as JWTTokenUser
-  const { _id, user, products, createdAt, totalPrice, status } = order
+  const { _id,  createdAt, totalPrice, status } = order
   // Format the timestamp to date and time
-  const formattedDateTime = new Date(createdAt).toLocaleString('en-US', {
+  const formattedDateTime = new Date(createdAt as string).toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
     day: '2-digit',

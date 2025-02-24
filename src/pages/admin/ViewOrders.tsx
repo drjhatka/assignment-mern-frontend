@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useGetAllUserOrdersQuery } from '../../redux/api/orderApi'
 import { JWTTokenUser, Order } from '../../types/types'
 import OrderCard from '../orders/OrderCard'

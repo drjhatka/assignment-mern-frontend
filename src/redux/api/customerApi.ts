@@ -9,6 +9,13 @@ export const customerApi = baseApi.injectEndpoints({
                 body:userInfo
             })
         }),
+        updateUser:builder.mutation({
+            query:(userInfo)=>({
+                url:'/users/',
+                method:"PUT",
+                body:userInfo
+            })
+        }),
         getUsers: builder.query({
             query: () => `/users/`
         }),
@@ -22,4 +29,4 @@ export const customerApi = baseApi.injectEndpoints({
     })
 })
 
-export const { useCreateUserMutation, useGetUsersQuery, useGetSingleUserQuery, useGetSingleUserByIdQuery }=customerApi
+export const { useCreateUserMutation, useUpdateUserMutation, useGetUsersQuery, useGetSingleUserQuery, useGetSingleUserByIdQuery }=customerApi

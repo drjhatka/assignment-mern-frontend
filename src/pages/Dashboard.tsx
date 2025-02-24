@@ -5,7 +5,7 @@ import AdminDashboard from "./admin/AdminDashboard"
 import CustomerDashboard from "./customers/CustomerDashboard"
 
 const Dashboard = () => {
-  const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user)
+  const user : JWTTokenUser|null = useSelector((state: RootState) => state.auth.user) as JWTTokenUser
 
   return (
     <div>

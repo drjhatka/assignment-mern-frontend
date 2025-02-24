@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useCreateReviewMutation } from '../../redux/api/reviewApi'
 import { GetCurrentUser } from '../../utils/GetCurrentUser'
+import ToastWrapper from '../../utils/ToastWrapper'
 
-const ReviewForm = ({ productId, refetch } ) => {
-    const {user, isLoading:userLoading}= GetCurrentUser()
+const ReviewForm = ({ productId, refetch }:{productId:string, refetch:() => void}) => {
+    const {user}= GetCurrentUser()
 
     const [rating, setRating] = useState<number>(5)
     const [comment, setComment] = useState<string>('Default Comment')
 
-    const [createReview, { isLoading }] = useCreateReviewMutation()
+    const [createReview, { isLoading, isSuccess }] = useCreateReviewMutation()
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -38,6 +39,7 @@ const ReviewForm = ({ productId, refetch } ) => {
 
     return (
         <div className="bg-slate-200 p-6 rounded-lg shadow-md">
+            <ToastWrapper></ToastWrapper>
             <h2 className="text-xl font-bold mb-4 border-b-2 border-black">Leave a Review</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -71,7 +73,7 @@ const ReviewForm = ({ productId, refetch } ) => {
                 <button
                     type="submit"
                     className="btn btn-primary w-full md:w-96"
-                    disabled={isLoading}
+                    disabled={isSuccess}
                 >
                     {isLoading ? 'Submitting...' : 'Submit Review'}
                 </button>

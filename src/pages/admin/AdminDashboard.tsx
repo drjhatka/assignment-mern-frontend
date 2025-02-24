@@ -1,6 +1,5 @@
 import { faBiking, faCartArrowDown, faUserGroup } from "@fortawesome/free-solid-svg-icons"
 import AdminButtons from "./AdminButtons"
-import ManageProduct from "./ManageProduct"
 import SectionTitle from "../../components/SectionTitle"
 import BreadCrumb from "../../components/ui/BreadCrumb"
 

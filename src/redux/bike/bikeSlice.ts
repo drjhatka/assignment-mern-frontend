@@ -1,9 +1,7 @@
 import { PayloadAction } from '../../../node_modules/@reduxjs/toolkit/src/createAction';
-import { Bike, TAuthState } from '../../types/types';
+import { Bike } from '../../types/types';
 import { createSlice } from '../../../node_modules/@reduxjs/toolkit/src/createSlice';
-import persistStore from 'redux-persist/es/persistStore';
-import { store } from '../store';
-import { WritableDraft } from 'immer';
+
 
 
 type FiltersState = {
@@ -39,8 +37,8 @@ export const bikeSlice = createSlice({
                 (state.price === "all" || bike.price <= parseInt(state.price))
             );
         },
-        setFilteredBikes: (state, action: PayloadAction<Bike[]>) => {
-             state.allBikes.filter(bike=>{bike.}) // ✅ Ensures a new array instance
+        setFilteredBikes: (state) => {
+             state.allBikes.filter(bike=>bike) // ✅ Ensures a new array instance
           },
     }
 })

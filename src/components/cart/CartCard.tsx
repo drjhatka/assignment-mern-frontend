@@ -1,9 +1,8 @@
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CartItems, useCart } from 'cart'
-import { data, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ToastWrapper from '../../utils/ToastWrapper'
-import { Bike, CartItem } from '../../types/types';
 import { useGetBikeQuery } from '../../redux/api/bikeApi'
 import CartButton from './CartButton'
 
@@ -11,7 +10,7 @@ import CartButton from './CartButton'
 const CartCard = ({ item }: { item: CartItems }) => {
   const { addToCart, cartItems, decreaseItem, removeFromCart } = useCart()
   const {data:bike, isLoading} =  useGetBikeQuery(item.productId)
-  const addItemToCart = (item: Bike) => {
+  const addItemToCart = (item: CartItems) => {
     if (!item) {
       console.error('No product data available to add to cart.')
       return
@@ -19,14 +18,18 @@ const CartCard = ({ item }: { item: CartItems }) => {
     addToCart?.({
       productId: item.productId,
       price: item.price,
-      imagesrc: item.image,
+      imagesrc: item.imagesrc,
       name: item.name,
       quantity: item.quantity
     })
     console.log('Cart Items:', cartItems)
   }
- const deleteItemFromCart = (item: Bike) => {
-    decreaseItem?.(item.productId, 1)
+ const deleteItemFromCart = (item: CartItems) => {
+  if (typeof item?.productId === 'string') {
+    decreaseItem?.(item.productId, 1);
+} else {
+    console.error('Invalid productId:', item.productId);
+}
   }
   
   const handleRemove = () => {

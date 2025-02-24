@@ -4,7 +4,7 @@ import { Bike } from '../../types/types';
 import { findCartItem } from './cart.utils';
 import { CartItems } from 'cart';
 
-
+// @ts-ignore
 const CartButton = (data:Bike, cartItems:CartItems[], cartFunctions, addItemToCart, deleteItemFromCart) => {
         //const {decreaseItem, addToCart} = cartFunctions
         //console.log("id ", data._id)

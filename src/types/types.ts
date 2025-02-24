@@ -1,4 +1,4 @@
-export interface TUser {
+export interface TUser extends Document {
   name: string;
   email: string;
   password: string;
@@ -53,10 +53,12 @@ export interface ProductOrder {
   product: Product[]
 }
 export interface Order {
+  _id:string;
   user: string;
   products: Product[];
   quantity: number;
   totalPrice: number;
+  createdAt:string;
   status: 'Pending' | 'Progress' | 'Completed'
 }
 
@@ -99,6 +101,7 @@ enum BikeTypes {
   'Electric'
 }
 export interface Bike extends Document  {
+  _id:string;
   name:string;
   brand:string;
   price:number;

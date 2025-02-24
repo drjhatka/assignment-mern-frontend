@@ -1,5 +1,4 @@
-import React from 'react';
-import SectionTitle from './SectionTitle';
+
 import ReviewCard from './ReviewCard';
 
 const CustomerReview = () => {

@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faUser } from '@fortawesome/free-solid-svg-icons'
-import { getUserName } from '../../utils/GetCurrentUser'
-
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+//@ts-ignore 
 const BikeReviewPanel = ({ bikeId, reviewLoading, isError, reviews }) => {
     //console.log('bike id', bikeId)
     //const { data: reviews, isLoading, isError, refetch } = useGetAllReviewsQuery(bikeId)

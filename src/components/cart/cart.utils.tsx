@@ -9,6 +9,7 @@ export const getCartItemTotal=(cartItems:CartItems[])=>{
     if(cartItems.length==0){return 0}
     return cartItems.reduce((acc:number, item:CartItems)=>acc +  (item.price ?? 0) * (item.quantity?? 0), 0 ).toFixed(2)
 }
+ // @ts-ignore
 const handleChangeCartItem=(item:CartItems, addToCart, quantity:number)=>{
     const updatedItem = { ...item, quantity }; 
     console.log(updatedItem)
@@ -16,7 +17,7 @@ const handleChangeCartItem=(item:CartItems, addToCart, quantity:number)=>{
     
 }
 
-export const generateCartItemQuantitySelectMenu = (addToCart, item:CartItems)=>{
+export const generateCartItemQuantitySelectMenu = (addToCart:()=>void, item:CartItems)=>{
     
     const optionArray:{value:number, label:string}[] =[];
     //generate value object array
