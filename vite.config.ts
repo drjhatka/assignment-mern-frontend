@@ -7,7 +7,9 @@ export default defineConfig({
     react({
       include: "**/*.tsx",
     }),
+   
   ],
+  base:"/assignment-mern-frontend",
   css: {
     postcss: {
       plugins: [tailwindcss()],
