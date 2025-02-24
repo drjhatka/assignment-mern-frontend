@@ -9,7 +9,7 @@ export default defineConfig({
     }),
    
   ],
-  base:"/assignment-mern-frontend",
+  //base:"/assignment-mern-frontend",
   css: {
     postcss: {
       plugins: [tailwindcss()],
