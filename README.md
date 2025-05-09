@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# 🚲 BikeShop - E-Commerce Platform for Bicycles 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![BikeShop Banner](https://via.placeholder.com/1200x400?text=BikeShop+E-Commerce) <!-- Replace with actual banner image -->
 
-Currently, two official plugins are available:
+A full-featured online bike store with secure payment integration, designed for moderate-sized bicycle retailers.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
 
-## Expanding the ESLint configuration
+- **Frontend:** [https://bikeshop-client.vercel.app](https://bikeshop-client.vercel.app) <!-- Replace with actual URL -->
+- **Backend API:** [https://bikeshop-server.onrender.com](https://bikeshop-server.onrender.com) <!-- Replace with actual URL -->
+- **API Documentation:** [API Docs](https://documenter.getpostman.com/view/12345678/2s93JtQwef) <!-- Replace with actual docs link -->
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## ✨ Key Features
 
-- Configure the top-level `parserOptions` property like this:
+### 🚴 Bike Catalog
+- Browse various categories (Mountain, Road, Hybrid, Electric, Kids bikes)
+- Detailed product pages with high-resolution images
+- Filter and search functionality
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 🛒 Shopping Experience
+- Real-time cart management
+- Coupon/discount code application
+- Save items for later
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 💳 Checkout & Payments
+- Secure payment processing (Stripe/Razorpay integration)
+- Multiple payment methods (credit card, bank transfer)
+- Order confirmation emails with receipts
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 👤 User Accounts
+- Personalized dashboard
+- Order history tracking
+- Wishlist functionality
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 🛠️ Admin Dashboard
+- Full product management (CRUD operations)
+- Sales analytics and reports
+- Customer management tools
+
+## 🛠 Tech Stack
+
+### Frontend
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 18.2 | UI Framework |
+| Redux Toolkit | 1.9 | State Management |
+| Tailwind CSS | 3.3 | Styling |
+| Axios | 1.3 | API Requests |
+| Stripe.js | 6.0 | Payment Processing |
+
+### Backend
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Node.js | 18.0 | Runtime |
+| Express | 4.18 | Server Framework |
+| MongoDB | 6.0 | Database |
+| Mongoose | 7.4 | ODM |
+| JWT | 9.0 | Authentication |
+
+### DevOps
+| Service | Purpose |
+|---------|---------|
+| Vercel | Frontend Hosting |
+| Render | Backend Hosting |
+| GitHub | Version Control |
+| Postman | API Testing |
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+- MongoDB Atlas account (or local MongoDB instance)
+- Stripe/Razorpay developer account
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/bikeshop.git
+   cd bikeshop
