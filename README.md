@@ -33,17 +33,7 @@
 
 ## 🛠 Tech Stack
 ### Frontend
-```javascript
-// Example package.json excerpt
-{
-  "dependencies": {
-    "react": "^18.2.0",
-    "next": "^13.4.7",
-    "redux": "^4.2.1",
-    "stripe-js": "^6.0.0",
-    "tailwindcss": "^3.3.3"
-  }
-}
+
 
 
 ### Backend
