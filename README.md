@@ -5,7 +5,7 @@
 ## 🌍 Live Links
 | Environment       | URL                          | Status |
 |-------------------|------------------------------|--------|
-| Production Site   | [bikeshop.com]((https://basha-finder-client.vercel.app/) | [![Production](https://img.shields.io/website?url=https%3A%2F%2Fbikeshop.com)](https://bikeshop.com) |
+| Production Site   | [bikeshop.com](https://basha-finder-client.vercel.app/) | [![Production](https://img.shields.io/website?url=https%3A%2F%2Fbikeshop.com)](https://bikeshop.com) |
 
 | API Server        | [api.bikeshop.com](https://api.bikeshop.com) | [![API Status](https://img.shields.io/website?url=https%3A%2F%2Fapi.bikeshop.com)](https://api.bikeshop.com) |
 | Admin Dashboard   | [admin.bikeshop.com](https://admin.bikeshop.com) | ![Access](https://img.shields.io/badge/access-restricted-red) |
