@@ -44,26 +44,7 @@
     "tailwindcss": "^3.3.3"
   }
 }
-# 🚲 BikeShop E-Commerce Platform
 
-
-![Banner](https://via.placeholder.com/1500x500/2D3748/FFFFFF?text=BikeShop+Platform)
-
-## 🌐 Live Links
-| Environment | URL | Status |
-|-------------|-----|--------|
-| Production | [bikeshop.com](https://bikeshop.com) | ![Live](https://img.shields.io/website?url=https%3A%2F%2Fbikeshop.com) |
-| API | [api.bikeshop.com](https://api.bikeshop.com) | ![API](https://img.shields.io/website?url=https%3A%2F%2Fapi.bikeshop.com) |
-
-## 🛠 Tech Stack
-### Frontend
-```javascript
-{
-  "react": "^18.2.0",
-  "next": "^13.4.0",
-  "redux": "^4.2.0"
-}
-```
 
 ### Backend
 ```mermaid
