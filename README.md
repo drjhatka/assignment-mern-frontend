@@ -1,6 +1,6 @@
 # 🚲 Robin Hood Bikes - Complete E-Commerce shop for your dream bikes.
 
-![Robin Hood Bike Banner](https://i.ibb.co/Fq4pw7qP/pngtree-bikes-shop-logo-design-template-vector-picture-image-3607389.png)
+<img src="https://i.ibb.co/Fq4pw7qP/pngtree-bikes-shop-logo-design-template-vector-picture-image-3607389.png" height="150" width="150" />
 
 ## 🌍 Live Site Links
 | Environment       | URL                          | Status |
