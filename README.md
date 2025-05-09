@@ -46,7 +46,7 @@
 }
 # 🚲 BikeShop E-Commerce Platform
 
-```markdown
+
 ![Banner](https://via.placeholder.com/1500x500/2D3748/FFFFFF?text=BikeShop+Platform)
 
 ## 🌐 Live Links
