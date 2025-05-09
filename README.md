@@ -6,7 +6,7 @@
 | Environment       | URL                          | Status |
 |-------------------|------------------------------|--------|
 | Production Site   | [Rentopia](https://basha-finder-client.vercel.app/) | [![Production](https://img.shields.io/website?url=https%3A%2F%2Fbasha-finder-client.vercel.app/)](https://bikeshop.com) |
-| API Server        | [Backend API Server]( https://assignment-6-backend-two.vercel.app/) | [![API Status](https://img.shields.io/website?url=https%3A%2F%2F https://assignment-6-backend-two.vercel.app/) |
+| API Server        | [Backend API Server]( https://assignment-6-backend-two.vercel.app/) | [![API Status](https://img.shields.io/website?url=https%3A%2F%2Fhttps://assignment-6-backend-two.vercel.app/) |
 | Admin Dashboard   | [admin.bikeshop.com](https://admin.bikeshop.com) | ![Access](https://img.shields.io/badge/access-restricted-red) |
 | Documentation     | [docs.bikeshop.com](https://docs.bikeshop.com) | ![Swagger](https://img.shields.io/badge/docs-swagger-85ea2d) |
 
