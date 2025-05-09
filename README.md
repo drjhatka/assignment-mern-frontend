@@ -1,81 +1,46 @@
-# 🚲 BikeShop - E-Commerce Platform for Bicycles 🛒
+# 🚲 BikeShop - Complete E-Commerce Platform
 
-![BikeShop Banner](https://i.ibb.co/Fq4pw7qP/pngtree-bikes-shop-logo-design-template-vector-picture-image-3607389.png) <!-- Replace with actual banner image -->
+![Project Banner](https://via.placeholder.com/1500x500/2D3748/FFFFFF?text=BikeShop+E-Commerce+Solution)
 
-A full-featured online bike store with secure payment integration, designed for moderate-sized bicycle retailers.
+## 🌍 Live Links
+| Environment       | URL                          | Status |
+|-------------------|------------------------------|--------|
+| Production Site   | [bikeshop.com](https://bikeshop.com) | [![Production](https://img.shields.io/website?url=https%3A%2F%2Fbikeshop.com)](https://bikeshop.com) |
+| API Server        | [api.bikeshop.com](https://api.bikeshop.com) | [![API Status](https://img.shields.io/website?url=https%3A%2F%2Fapi.bikeshop.com)](https://api.bikeshop.com) |
+| Admin Dashboard   | [admin.bikeshop.com](https://admin.bikeshop.com) | ![Access](https://img.shields.io/badge/access-restricted-red) |
+| Documentation     | [docs.bikeshop.com](https://docs.bikeshop.com) | ![Swagger](https://img.shields.io/badge/docs-swagger-85ea2d) |
 
-## 🔗 Live Demo
-
-- **Frontend:** [https://bikeshop-client.vercel.app](https://bikeshop-client.vercel.app) <!-- Replace with actual URL -->
-- **Backend API:** [https://bikeshop-server.onrender.com](https://bikeshop-server.onrender.com) <!-- Replace with actual URL -->
-- **API Documentation:** [API Docs](https://documenter.getpostman.com/view/12345678/2s93JtQwef) <!-- Replace with actual docs link -->
-
-## ✨ Key Features
-
-### 🚴 Bike Catalog
-- Browse various categories (Mountain, Road, Hybrid, Electric, Kids bikes)
-- Detailed product pages with high-resolution images
-- Filter and search functionality
+## ✨ Core Features
+### 🏷️ Product Management
+- **Multi-category Catalog** (Road, Mountain, Hybrid, Electric)
+- **Advanced Search** (Price range, gear type, frame material)
+- **Inventory Tracking** (Real-time stock updates)
 
 ### 🛒 Shopping Experience
-- Real-time cart management
-- Coupon/discount code application
-- Save items for later
+- **Persistent Cart** (Logged-in and guest users)
+- **Wishlists** (With price drop notifications)
+- **One-Click Checkout** (Saved payment methods)
 
-### 💳 Checkout & Payments
-- Secure payment processing (Stripe/Razorpay integration)
-- Multiple payment methods (credit card, bank transfer)
-- Order confirmation emails with receipts
+### 💳 Payments
+- **Stripe Integration** (Cards, Apple Pay, Google Pay)
+- **PayPal** (Express checkout)
+- **3D Secure** (SCA Compliance)
 
-### 👤 User Accounts
-- Personalized dashboard
-- Order history tracking
-- Wishlist functionality
-
-### 🛠️ Admin Dashboard
-- Full product management (CRUD operations)
-- Sales analytics and reports
-- Customer management tools
+### 📊 Admin Features
+- **Dashboard Analytics** (Sales, conversions, revenue)
+- **Bulk Operations** (Product imports/exports)
+- **Order Fulfillment** (Shipping label generation)
 
 ## 🛠 Tech Stack
-
 ### Frontend
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| React | 18.2 | UI Framework |
-| Redux Toolkit | 1.9 | State Management |
-| Tailwind CSS | 3.3 | Styling |
-| Axios | 1.3 | API Requests |
-| Stripe.js | 6.0 | Payment Processing |
-
-### Backend
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Node.js | 18.0 | Runtime |
-| Express | 4.18 | Server Framework |
-| MongoDB | 6.0 | Database |
-| Mongoose | 7.4 | ODM |
-| JWT | 9.0 | Authentication |
-
-### DevOps
-| Service | Purpose |
-|---------|---------|
-| Vercel | Frontend Hosting |
-| Render | Backend Hosting |
-| GitHub | Version Control |
-| Postman | API Testing |
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm (v9 or higher)
-- MongoDB Atlas account (or local MongoDB instance)
-- Stripe/Razorpay developer account
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/bikeshop.git
-   cd bikeshop
+```javascript
+// Example package.json excerpt
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "next": "^13.4.7",
+    "redux": "^4.2.1",
+    "stripe-js": "^6.0.0",
+    "tailwindcss": "^3.3.3"
+  }
+}
