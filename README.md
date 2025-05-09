@@ -1,8 +1,8 @@
 # 🚲 BikeShop - Complete E-Commerce Platform
 
-![Project Banner](https://via.placeholder.com/1500x500/2D3748/FFFFFF?text=BikeShop+E-Commerce+Solution)
+![Project Banner](https://i.ibb.co/3mFs9QTT/logo.png)
 
-## 🌍 Live Links
+## 🌍 Live Site Links
 | Environment       | URL                          | Status |
 |-------------------|------------------------------|--------|
 | Production Site   | [Rentopia](https://basha-finder-client.vercel.app/) | [![Production](https://img.shields.io/website?url=https%3A%2F%2Fbasha-finder-client.vercel.app/)](https://bikeshop.com) |
