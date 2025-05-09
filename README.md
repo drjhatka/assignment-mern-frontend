@@ -1,6 +1,6 @@
 # 🚲 BikeShop - Complete E-Commerce Platform
 
-(https://i.ibb.co/3mFs9QTT/logo.png](https://i.ibb.co/VpmzTGZT/logo.jpg)
+[](https://i.ibb.co/3mFs9QTT/logo.png](https://i.ibb.co/VpmzTGZT/logo.jpg)
 
 ## 🌍 Live Site Links
 | Environment       | URL                          | Status |
