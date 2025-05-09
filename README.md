@@ -44,3 +44,72 @@
     "tailwindcss": "^3.3.3"
   }
 }
+# 🚲 BikeShop E-Commerce Platform
+
+```markdown
+![Banner](https://via.placeholder.com/1500x500/2D3748/FFFFFF?text=BikeShop+Platform)
+
+## 🌐 Live Links
+| Environment | URL | Status |
+|-------------|-----|--------|
+| Production | [bikeshop.com](https://bikeshop.com) | ![Live](https://img.shields.io/website?url=https%3A%2F%2Fbikeshop.com) |
+| API | [api.bikeshop.com](https://api.bikeshop.com) | ![API](https://img.shields.io/website?url=https%3A%2F%2Fapi.bikeshop.com) |
+
+## 🛠 Tech Stack
+### Frontend
+```javascript
+{
+  "react": "^18.2.0",
+  "next": "^13.4.0",
+  "redux": "^4.2.0"
+}
+```
+
+### Backend
+```mermaid
+graph TD
+    A[Client] --> B[API]
+    B --> C[Database]
+    B --> D[Cache]
+```
+
+## 💻 Local Setup
+```bash
+git clone https://github.com/bikeshop/platform.git
+cd platform
+npm install
+npm run dev
+```
+
+## 🚧 Challenges
+```javascript
+// Payment verification
+const verifyPayment = async (event) => {
+  try {
+    return await stripe.events.retrieve(event.id);
+  } catch (err) {
+    logger.error('Payment verification failed');
+  }
+};
+```
+
+## 📅 Roadmap
+- [x] Payment Integration
+- [ ] AR Preview (Q3 2024)
+- [ ] Mobile App (Q4 2024)
+
+## 📜 License
+MIT © 2024 BikeShop
+```
+
+## How to Use This:
+1. Copy the entire content above
+2. Create a new `README.md` in GitHub
+3. Paste and commit - all formatting will render perfectly
+
+Key elements preserved:
+- Nested code blocks
+- Mermaid diagrams
+- Interactive checkboxes
+- Status badges
+- Syntax highlighting
