@@ -1,6 +1,6 @@
 # 🚲 BikeShop - E-Commerce Platform for Bicycles 🛒
 
-![BikeShop Banner]([https://via.placeholder.com/1200x400?text=BikeShop+E-Commerce](https://i.ibb.co/Fq4pw7qP/pngtree-bikes-shop-logo-design-template-vector-picture-image-3607389.png)) <!-- Replace with actual banner image -->
+![BikeShop Banner]([https://via.placeholder.com/1200x400?text=BikeShop+E-Commerce](https://i.ibb.co/Fq4pw7qP/pngtree-bikes-shop-logo-design-template-vector-picture-image-3607389.png) <!-- Replace with actual banner image -->
 
 A full-featured online bike store with secure payment integration, designed for moderate-sized bicycle retailers.
 
