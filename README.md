@@ -20,6 +20,11 @@
 - **Wishlists** (With price drop notifications)
 - **One-Click Checkout** (Saved payment methods)
 
+## 📊 Dashboard Management
+-  Admin Dashboard
+-  One Stop place for managing bikes
+-  Manage Users and UI from the Dashboard
+-   
 ### 💳 Payments
 - **Stripe Integration** (Cards, Apple Pay, Google Pay)
 - **PayPal** (Express checkout)
