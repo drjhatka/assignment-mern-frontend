@@ -78,6 +78,26 @@ Building an online bike shop comes with several challenges, including:
 ### 5. Order & Shipping Management
 **Tracking orders, generating invoices, and updating customers on delivery status.**
 
+## 🔮 Future Plans
+
+### **Near-Term (Q3-Q4 2025)**
+- [ ] **Mobile App** (React Native)
+- [ ] **Loyalty Program** (Points system)
+- [ ] **Live Chat Support**
+- [ ] **Advanced Analytics Dashboard**
+
+### **Mid-Term (Q1-Q2 2026)**
+- [ ] **Bike Rental System**
+- [ ] **Augmented Reality (AR) Preview**
+- [ ] **Local Delivery Optimization**
+- [ ] **Multi-language Support**
+
+### **Long-Term**
+- [ ] **AI Recommendation Engine**
+- [ ] **IoT Bike Integration** (Smart locks/tracking)
+- [ ] **Marketplace Expansion** (User-to-user sales)
+- [ ] **Subscription Model** (Monthly bike maintenance)
+
 
 
 
