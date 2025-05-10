@@ -24,7 +24,7 @@
 -  Admin Dashboard
 -  One Stop place for managing bikes
 -  Manage Users and UI from the Dashboard
--   
+  
 ### 💳 Payments
 - **Stripe Integration** (Cards, Apple Pay, Google Pay)
 - **PayPal** (Express checkout)
@@ -60,9 +60,9 @@ npm run dev
 Building an online bike shop comes with several challenges, including:
 
 ### 1. User Authentication & Security
-** Implementing a secure registration/login system while protecting user data.**
+**Implementing a secure registration/login system while protecting user data.**
 
-** Handling password encryption, session management, and preventing unauthorized access.**
+**Handling password encryption, session management, and preventing unauthorized access.**
 
 2. Product Management
 Organizing bikes into different categories (e.g., Mountain, Road, Hybrid) with filters (price, brand, size).
