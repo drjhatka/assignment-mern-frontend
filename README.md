@@ -60,7 +60,7 @@ npm run dev
 Building an online bike shop comes with several challenges, including:
 
 ### 1. User Authentication & Security
---Implementing a secure registration/login system while protecting user data.
+-- Implementing a secure registration/login system while protecting user data.
 
 Handling password encryption, session management, and preventing unauthorized access.
 
