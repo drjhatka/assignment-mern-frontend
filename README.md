@@ -57,47 +57,24 @@ Building an online bike shop comes with several challenges, including:
 
 **Handling password encryption, session management, and preventing unauthorized access.**
 
-2. Product Management
-Organizing bikes into different categories (e.g., Mountain, Road, Hybrid) with filters (price, brand, size).
+### 2. Product Management
+**Organizing bikes into different categories (e.g., Mountain, Road, Hybrid) with filters (price, brand, size).**
 
-Managing inventory to prevent overselling (real-time stock updates).
+**Managing inventory to prevent overselling (real-time stock updates).**
 
-3. Payment Integration
-Integrating a reliable payment gateway (Stripe, PayPal, etc.) while ensuring PCI compliance.
+### 3. Payment Integration
+**Integrating a reliable payment gateway (Stripe, PayPal, etc.) while ensuring PCI compliance.**
 
-Handling refunds, failed transactions, and fraud detection.
+ **Handling refunds, failed transactions, and fraud detection.**
 
-4. Responsive & Accessible UI
-Designing a mobile-friendly interface for seamless shopping across devices.
+### 4. Responsive & Accessible UI
+**Designing a mobile-friendly interface for seamless shopping across devices.**
 
-Ensuring fast load times and smooth navigation despite high-resolution bike images.
+**Ensuring fast load times and smooth navigation despite high-resolution bike images.**
 
-5. Order & Shipping Management
-Tracking orders, generating invoices, and updating customers on delivery status.
-
-Calculating accurate shipping costs based on location and bike dimensions.
-
-6. Performance Optimization
-Handling high traffic during promotions without slowing down the site.
+### 5. Order & Shipping Management
+**Tracking orders, generating invoices, and updating customers on delivery status.**
 
 
-## 📅 Roadmap
-- [x] Payment Integration
-- [ ] AR Preview (Q3 2024)
-- [ ] Mobile App (Q4 2024)
 
-## 📜 License
-MIT © 2024 BikeShop
-```
 
-## How to Use This:
-1. Copy the entire content above
-2. Create a new `README.md` in GitHub
-3. Paste and commit - all formatting will render perfectly
-
-Key elements preserved:
-- Nested code blocks
-- Mermaid diagrams
-- Interactive checkboxes
-- Status badges
-- Syntax highlighting
