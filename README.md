@@ -51,22 +51,42 @@ graph TD
 ## 💻 Local Setup
 ```bash
 git clone https://github.com/bikeshop/platform.git
-cd platform
+cd assignment-mern-frontend
 npm install
 npm run dev
 ```
 
 ## 🚧 Challenges
-```javascript
-// Payment verification
-const verifyPayment = async (event) => {
-  try {
-    return await stripe.events.retrieve(event.id);
-  } catch (err) {
-    logger.error('Payment verification failed');
-  }
-};
-```
+Building an online bike shop comes with several challenges, including:
+
+1. User Authentication & Security
+Implementing a secure registration/login system while protecting user data.
+
+Handling password encryption, session management, and preventing unauthorized access.
+
+2. Product Management
+Organizing bikes into different categories (e.g., Mountain, Road, Hybrid) with filters (price, brand, size).
+
+Managing inventory to prevent overselling (real-time stock updates).
+
+3. Payment Integration
+Integrating a reliable payment gateway (Stripe, PayPal, etc.) while ensuring PCI compliance.
+
+Handling refunds, failed transactions, and fraud detection.
+
+4. Responsive & Accessible UI
+Designing a mobile-friendly interface for seamless shopping across devices.
+
+Ensuring fast load times and smooth navigation despite high-resolution bike images.
+
+5. Order & Shipping Management
+Tracking orders, generating invoices, and updating customers on delivery status.
+
+Calculating accurate shipping costs based on location and bike dimensions.
+
+6. Performance Optimization
+Handling high traffic during promotions without slowing down the site.
+
 
 ## 📅 Roadmap
 - [x] Payment Integration
