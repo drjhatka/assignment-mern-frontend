@@ -40,13 +40,6 @@
 
 
 
-### Backend
-```mermaid
-graph TD
-    A[Client] --> B[API]
-    B --> C[Database]
-    B --> D[Cache]
-```
 
 ## 💻 Local Setup
 ```bash
